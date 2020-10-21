@@ -149,6 +149,7 @@ assign [class="firefox"] $ws1
 assign [class="Terminator"] $ws3
 assign [class="Xfce4-terminal"] $ws3
 assign [class="Thunderbird"] $ws4
+assign [class="Evolution"] $ws4
 assign [class="Code"] $ws2
 assign [class="Subl"] $ws2
 assign [class="jetbrains-datagrip"] $ws2

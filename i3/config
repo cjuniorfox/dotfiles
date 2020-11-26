@@ -187,6 +187,7 @@ for_window [class="Xfburn"] floating enable
 #for_window [class="rdesktop"] floating enable
 for_window [class="Dockx"] floating enable
 for_window [class="Xfce4-notes"] floating enable
+for_window [class="Xfce4-taskmanager"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -286,7 +287,9 @@ bindsym $mod+M move workspace to output right
 
 bindsym $mod+shift+x exec i3lock-fancy
 
-bindsym Print exec xfce4-screenshooter
+bindsym Print exec flameshot
+
+bindsym shift+Print exec flameshot gui
 
 
 
@@ -302,12 +305,16 @@ exec --no-startup-id pa-applet
 #
 
 #Exec on boot
-exec --no-startup-id xfce4-clipman
+exec --no-startup-id lxqt-notificationd
+#exec --no-startup-id xfce4-clipman
 exec compton
 exec davmail
 exec numlockx on
-exec --no-startup-ip /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xfce4_notes
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh	
-exec_always --no-startup-id feh --bg-fill $(find /usr/share/backgrounds -type f | shuf -n 1)
+exec --no-startup-id /usr/bin/lxqt-policykit-agent
+#exec --no-startup-id xfce4_notes
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id python ./.config/i3/traycalendar.py	
+exec --no-startup-id clipit
+#exec_always --no-startup-id feh --bg-fill $(find /usr/share/backgrounds -type f | shuf -n 1)
 #exec_always --no-startup-id git -C ~/Pictures/wallpaper/ pull && feh --bg-fill $(find ~/Pictures/wallpaper -type f | shuf -n 1)

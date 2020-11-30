@@ -308,7 +308,7 @@ exec --no-startup-id pa-applet
 exec --no-startup-id lxqt-notificationd
 #exec --no-startup-id xfce4-clipman
 exec compton
-exec davmail
+#exec davmail
 exec numlockx on
 exec --no-startup-id /usr/bin/lxqt-policykit-agent
 #exec --no-startup-id xfce4_notes

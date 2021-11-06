@@ -147,10 +147,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [class="firefox"] $ws1
 assign [class="Terminator"] $ws3
-assign [class="Xfce4-terminal"] $ws3
+assign [class="Gnome-terminal"] $ws3
 assign [class="Thunderbird"] $ws4
 assign [class="Evolution"] $ws4
-assign [class="Code"] $ws2
+assign [class="Code"] $ws
 assign [class="Subl"] $ws2
 assign [class="jetbrains-datagrip"] $ws2
 assign [class="Postman"] $ws2
@@ -162,7 +162,7 @@ assign [class="Virt-manager"] $ws6
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="Gnome Calculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
@@ -278,8 +278,8 @@ bindsym $mod+comma exec amixer set Master -q 5%-
 bindsym $mod+period exec amixer set Master -q 5%+
 #exec tilda
 
-#bindsym $mod+B exec ~/.config/i3/monitor.sh
-#bindsym $mod+shift+B exec ~/.config/i3/reset_monitor.sh
+bindsym $mod+B exec ~/.config/i3/monitor.sh
+bindsym $mod+shift+B exec ~/.config/i3/reset_monitor.sh
 
 bindsym $mod+N move workspace to output left
 
@@ -287,9 +287,9 @@ bindsym $mod+M move workspace to output right
 
 bindsym $mod+shift+x exec i3lock-fancy
 
-bindsym Print exec flameshot
+bindsym Print exec org.flameshot.Flameshot
 
-bindsym shift+Print exec flameshot gui
+bindsym shift+Print exec org.flameshot.Flameshot gui
 
 
 
@@ -309,8 +309,8 @@ exec --no-startup-id lxqt-notificationd
 #exec --no-startup-id xfce4-clipman
 exec compton
 #exec davmail
-exec numlockx on
-exec --no-startup-id /usr/bin/lxqt-policykit-agent
+#exec numlockx on
+#exec --no-startup-id /usr/bin/lxqt-policykit-agent
 #exec --no-startup-id xfce4_notes
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore

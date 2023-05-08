@@ -197,19 +197,20 @@ type = custom/menu
 label-open = 
 label-close =  
 label-separator = "  "
-menu-0-0 = 
-menu-0-1 = 
+menu-0-1 = 
+menu-0-0 = 
 menu-0-2 = 
 menu-0-3 = 
 menu-0-4 = 
+menu-0-5 = Po
 ;       v     
 
-menu-0-0-exec = firefox
-menu-0-1-exec = alacritty
+menu-0-1-exec = firefox
+menu-0-0-exec = alacritty
 menu-0-2-exec = flatpak run com.valvesoftware.Steam
 menu-0-3-exec = flatpak run com.visualstudio.code
 menu-0-4-exec = thunar
-
+menu-0-5-exec = flatpak run com.getpostman.Postman
 [settings]
 screenchange-reload = true
 pseudo-transparency = true

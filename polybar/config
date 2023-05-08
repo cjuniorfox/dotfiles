@@ -45,7 +45,7 @@ padding-right = 1
 
 module-margin = 1
 
-separator = |
+#separator = |
 separator-foreground = ${colors.disabled}
 
 font-0 = "Liberation Mono:style=Regular:pixelsize=12;2"
@@ -54,7 +54,7 @@ font-1 = "Font Awesome 6 Free:style=Regular:pixelsize=12;1"
 font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=12;1"
 font-3 = "Font Awesome 6 Brands:pixelsize=12;1"
 
-modules-left = appmenu xworkspaces xwindow
+modules-left = jgmenu appmenu xworkspaces xwindow
 modules-center = date
 modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth powermenu
 
@@ -108,14 +108,21 @@ label-unmounted-foreground = ${colors.disabled}
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume-prefix = " "
+#format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.primary}
-format-volume = <label-volume>
+format-volume = <ramp-volume> <label-volume>
 
 label-volume = %percentage%%
 
-label-muted =  
+label-muted = 
 label-muted-foreground = ${colors.disabled}
+ramp-volume-0-foreground = ${colors.primary}
+ramp-volume-1-foreground = ${colors.primary}
+ramp-volume-2-foreground = ${colors.primary}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+click-right = pavucontrol
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -192,21 +199,27 @@ menu-0-3-exec = i3exit hibernate
 menu-0-4-exec = i3exit reboot
 menu-0-5-exec = i3exit shutdown
 
+[module/jgmenu]
+type = custom/text
+content = 
+click-left = jgmenu_run
+click-right = rofi -modi drun, run -show drun
+
 [module/appmenu]
 type = custom/menu
-label-open = 
+label-open = 
 label-close =  
 label-separator = "  "
-menu-0-1 = 
-menu-0-0 = 
+menu-0-0 = 
+menu-0-1 = 
 menu-0-2 = 
 menu-0-3 = 
 menu-0-4 = 
 menu-0-5 = Po
 ;       v     
 
-menu-0-1-exec = firefox
-menu-0-0-exec = alacritty
+menu-0-0-exec = firefox
+menu-0-1-exec = alacritty
 menu-0-2-exec = flatpak run com.valvesoftware.Steam
 menu-0-3-exec = flatpak run com.visualstudio.code
 menu-0-4-exec = thunar

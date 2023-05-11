@@ -1,0 +1,38 @@
+@rect,,154,4,292,36,2,left,top,#000000 0,#656565 50,
+@search,,159,4,240,36,2,left,top,#eeeeee 80,#000000 0,
+@icon,,416,12,22,22,2,left,top,#000000 50,#000000 50,/home/junior/.config/jgmenu/greeneye-search.svg
+@rect,,154,44,292,462,2,left,top,#000000 0,#282828 90,
+@rect,^filter(),4,4,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,4,142,35,2,left,top,#e6e6e6 100,#000000 0,All
+@rect,^filter(#Accessories #Util #Archiving #Compression #TextEditor ),4,39,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,39,142,35,2,left,top,#e6e6e6 100,#000000 0,Accessories
+@rect,^filter(#Development #Build #Debug #IDE #Profiling #RevisionControl ),4,74,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,74,142,35,2,left,top,#e6e6e6 100,#000000 0,Development
+@rect,^filter(#Game ),4,109,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,109,142,35,2,left,top,#e6e6e6 100,#000000 0,Games
+@rect,^filter(#Graphics #Scanning #Photography ),4,144,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,144,142,35,2,left,top,#e6e6e6 100,#000000 0,Graphics
+@rect,^filter(#Internet #Network #Email #FileTransfer #WebBrowser ),4,179,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,179,142,35,2,left,top,#e6e6e6 100,#000000 0,Internet
+@rect,^filter(#Multimedia #Player #Audio #Video #Recorder ),4,214,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,214,142,35,2,left,top,#e6e6e6 100,#000000 0,Multimedia
+@rect,^filter(#Office #Calendar #Contact #Dictionary #Chart #Finance #Presentation #Spreadsheet #WordProcessor #Publishing #Viewer ),4,249,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,249,142,35,2,left,top,#e6e6e6 100,#000000 0,Office
+@rect,^filter(#Settings #Security #Preferences ),4,284,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,284,142,35,2,left,top,#e6e6e6 100,#000000 0,Settings
+@rect,^filter(#System #Emulator #FileManager #TerminalEmulator #Filesystem #Monitor ),4,319,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,319,142,35,2,left,top,#e6e6e6 100,#000000 0,System
+
+@rect,i3exit lock,4,365,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,365,142,35,2,left,top,#e6e6e6 100,#000000 0,  Lock
+@rect,i3exit logout,4,400,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,400,142,35,2,left,top,#e6e6e6 100,#000000 0,  Logout
+@rect,i3exit suspend,4,435,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,435,142,35,2,left,top,#e6e6e6 100,#000000 0,  Suspend
+@rect,i3exit hibernate,4,470,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,470,142,35,2,left,top,#e6e6e6 100,#000000 0,  Hibernate
+@rect,i3exit reboot,4,505,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,505,142,35,2,left,top,#e6e6e6 100,#000000 0,  Reboot
+@rect,~/.config/jgmenu/dialog/dialog.sh Do\ you\ really\ want\ to\ shutdown\ the\ system? Yes i3exit\ shutdown No echo\ null,4,540,142,35,2,left,top,#000000 0,#000000 0,
+#@rect,i3exit shutdown,4,540,142,35,2,left,top,#000000 0,#000000 0,
+@text,,9,540,142,35,2,left,top,#e6e6e6 100,#000000 0,  Shutdown

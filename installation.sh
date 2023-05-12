@@ -25,7 +25,7 @@ sudo dnf install xrdp -y && \
 sudo dnf remove volumeicon xfce4-terminal
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install org.flameshot.Flameshot com.valvesoftware.Steam com.visualstudio.code com.getpostman.Postman
+flatpak install -y org.flameshot.Flameshot com.valvesoftware.Steam com.visualstudio.code com.getpostman.Postman
 
 #sudo dnf group install "Fedora Workstation"
 

@@ -193,7 +193,7 @@ label = %output%
 interval = 7200
 format-prefix = " "
 format-prefix-foreground = ${colors.primary}
-click-left = alacritty -e bash -c 'echo Install\ updates? Type\ your\ password\ to\ install\ then. && sudo dnf upgrade' 
+click-left = i3-sensible-terminal -e bash -c 'echo Install\ updates? Type\ your\ password\ to\ install\ then. && sudo dnf upgrade' 
 
 [module/powermenu]
 type = custom/menu
@@ -235,7 +235,7 @@ menu-0-5 = Po
 ;       v     
 
 menu-0-0-exec = firefox
-menu-0-1-exec = alacritty
+menu-0-1-exec = i3-sensible-terminal
 menu-0-2-exec = flatpak run com.valvesoftware.Steam
 menu-0-3-exec = flatpak run com.visualstudio.code
 menu-0-4-exec = thunar

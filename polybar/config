@@ -54,9 +54,9 @@ font-1 = "Font Awesome 6 Free:style=Regular:pixelsize=12;1"
 font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=12;1"
 font-3 = "Font Awesome 6 Brands:pixelsize=12;1"
 
-modules-left = jgmenu appmenu xworkspaces xwindow
+modules-left = jgmenu appmenu xworkspaces xwindow close
 modules-center = date
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth powermenu
+modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth updates powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -93,6 +93,13 @@ label-empty-padding = 1
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:60:...%
+
+[module/close]
+exec = echo close
+type = custom/script
+format = <label>
+label = 
+click-left = xdotool getactivewindow windowquit
 
 [module/filesystem]
 type = internal/fs
@@ -179,9 +186,18 @@ date-alt = %Y-%m-%d %H:%M:%S
 label = %date%
 label-foreground = ${colors.primary}
 
+[module/updates]
+type = custom/script
+exec = dnf check-update -q | grep -v -e '^$' | wc -l
+label = %output%
+interval = 7200
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+click-left = alacritty -e bash -c 'echo Install\ updates? Type\ your\ password\ to\ install\ then. && sudo dnf upgrade' 
+
 [module/powermenu]
 type = custom/menu
-;expand-right = true
+expand-right = false
 label-separator = " | "
 label-open = 
 label-close =  Close
@@ -192,7 +208,7 @@ menu-0-3 =  Hibernate
 menu-0-4 =  Reboot
 menu-0-5 =  Shutdown
 
-menu-0-0-exec = i3exit lock
+menu-0-0-exec = i3lock -c 000000
 menu-0-1-exec = i3exit logout
 menu-0-2-exec = i3exit suspend
 menu-0-3-exec = i3exit hibernate

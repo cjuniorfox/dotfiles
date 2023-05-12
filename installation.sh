@@ -22,7 +22,10 @@ sudo dnf install xrdp -y && \
 	sudo firewall-cmd --permanent --add-port=3389/tcp && sudo firewall-cmd --reload && \
 	sudo chcon --type=bin_t /usr/sbin/xrdp  && sudo chcon --type=bin_t /usr/sbin/xrdp-sesman 
 
-sudo dnf remove xfce4-terminal
+sudo dnf remove volumeicon xfce4-terminal
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install org.flameshot.Flameshot com.valvesoftware.Steam com.visualstudio.code com.getpostman.Postman
 
 #sudo dnf group install "Fedora Workstation"
 

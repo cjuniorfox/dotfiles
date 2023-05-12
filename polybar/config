@@ -54,7 +54,7 @@ font-1 = "Font Awesome 6 Free:style=Regular:pixelsize=12;1"
 font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=12;1"
 font-3 = "Font Awesome 6 Brands:pixelsize=12;1"
 
-modules-left = jgmenu appmenu xworkspaces xwindow close
+modules-left = jgmenu appmenu xworkspaces close
 modules-center = date
 modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth updates powermenu
 

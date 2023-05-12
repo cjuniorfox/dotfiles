@@ -95,12 +95,13 @@ type = internal/xwindow
 label = %title:0:60:...%
 
 [module/close]
-exec = echo close
+exec = echo 
+exec-if = xdotool getactivewindow
 type = custom/script
 format = <label>
-label = 
+;label = 
 click-left = xdotool getactivewindow windowquit
-
+#interval = 1
 [module/filesystem]
 type = internal/fs
 interval = 25

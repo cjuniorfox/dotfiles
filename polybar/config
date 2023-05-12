@@ -191,7 +191,7 @@ type = custom/script
 exec = dnf check-update -q | grep -v -e '^$' | wc -l
 label = %output%
 interval = 7200
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.primary}
 click-left = alacritty -e bash -c 'echo Install\ updates? Type\ your\ password\ to\ install\ then. && sudo dnf upgrade' 
 

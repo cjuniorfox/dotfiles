@@ -21,8 +21,7 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id jgmenu_run
-#bindsym $mod+d exec --no-startup-id rofi run -show drun
+bindsym $mod+d exec --no-startup-id rofi run -show drun
 #bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 
@@ -118,8 +117,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.config/rofi/shutdown.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -182,7 +181,6 @@ bindsym $mod+Shift+S exec --no-startup-id flatpak run org.flameshot.Flameshot gu
 
 exec --no-startup-id /usr/libexec/xfce-polkit
 exec --no-startup-id picom
-#exec --no-startup-id volumeicon
-exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id .config/polybar/launch.sh
 exec git clone https://gist.github.com/85942af486eb79118467.git ~/Pictures/wallpapers || git -C ~/Pictures/wallpapers/ pull
+exec ~/.fehbg

@@ -1,0 +1,98 @@
+* {
+    background:      #282A2E;
+    background-alt:  #373B41;
+    foreground:      #C5C8C6;
+    primary:         #F0C674;
+    secondary:       #8ABEB7;
+    alert:           #A54242;
+    disabled:        #707880;
+}
+
+configuration {
+    font: "Envy Code R 12";
+    line-margin: 10;
+
+    display-ssh:    "";
+    display-run:    "";
+    display-drun:   "";
+    display-window: "";
+    display-combi:  "";
+    show-icons:     true;
+}
+
+
+window {
+    transparency:     "screenshot";
+    padding:          0;
+    height:           75%;
+    width:            20.5%;
+    location:         north west;
+    anchor:           north west;
+    x-offset:         0px;
+    y-offset:         32px;
+    background-color: @background;
+    border-radius:    0px ;
+    border:           0px ;
+    children: [mainbox];
+}
+entry {
+    spacing:    0;
+    text-color: @foreground;
+}
+mainbox {
+    padding:      0;
+    border-color: @primary;
+    border:       0px ;
+    children:     [ inputbar,message, listview ];
+}
+message{}
+inputbar{
+    color: @background-alt;
+    border:1px;
+    border-color: @disabled;
+    margin: 6px;
+    border-radius: 6px 6px 0px 0px;
+}
+listview {
+    padding: 3px;
+    vertical-align: 0.5;
+    background-color: transparent;
+    color: @foreground;
+}
+element-text {
+    background-color: @background;
+    text-color:       inherit;
+}
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    border-radius: 4px;
+    background-color: transparent;
+    color: @foreground;
+    text-color: rgb(216, 222, 233);
+}
+
+element selected.normal {
+	background-color: @background-alt;
+	text-color: #2e3440;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+button {
+    padding: 6px;
+    color: @foreground;
+    horizontal-align: 0.5;
+
+    border: 2px 0px 2px 2px;
+    border-radius: 4px 0px 0px 4px;
+    border-color: @foreground;
+}
+
+button selected normal {
+    border: 2px 0px 2px 2px;
+    border-color: @foreground;
+}

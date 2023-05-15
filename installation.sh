@@ -31,7 +31,11 @@ flatpak install -y org.flameshot.Flameshot \
 	com.valvesoftware.Steam \
 	com.visualstudio.code \
 	com.getpostman.Postman \
-	org.freedesktop.Platform.VulkanLayer.MangoHud
+	org.freedesktop.Platform.VulkanLayer.MangoHud \
+	org.freedesktop.Platform.GL.nvidia-530-41-03 \
+	org.freedesktop.Platform.GL32.nvidia-530-41-03 \
+	com.leinardi.gwe \
+	org.gnome.FileRoller
 
 #Playing games with MangoHUD, steamdeck and so on: https://www.clubedohardware.com.br/forums/topic/1609909-configurando-a-steam-flatpak-discos-mangohud-gamemode-e-remote-play/
 
@@ -77,4 +81,7 @@ case "\$1" in
 esac
 exit 0
 EOF
-
+cat << EOF | sudo tee /usr/local/bin/code && sudo chmod +x /usr/local/bin/code
+#!/bin/bash
+flatpak run com.visualstudio.code \$1 \$2 \$3 \$4 \$5
+EOF

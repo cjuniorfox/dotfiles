@@ -48,11 +48,11 @@ module-margin = 1
 #separator = |
 separator-foreground = ${colors.disabled}
 
-font-0 = "Liberation Mono:style=Regular:pixelsize=12;2"
-#font-1 = "UbuntuMono Nerd Font:size=16;3"
-font-1 = "Font Awesome 6 Free:style=Regular:pixelsize=12;1"
-font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=12;1"
-font-3 = "Font Awesome 6 Brands:pixelsize=12;1"
+font-4 = "Liberation Mono:style=Regular:size=12;2"
+font-0 = "UbuntuMono Nerd Font:size=12;3"
+font-1 = "Font Awesome 6 Free:style=Regular:size=12;1"
+font-2 = "Font Awesome 6 Free:style=Solid:size=12;1"
+font-3 = "Font Awesome 6 Brands:size=12;1"
 
 modules-left = menu appmenu xworkspaces xwindow close
 modules-center = date
@@ -74,19 +74,19 @@ tray-position = right
 [module/xworkspaces]
 type = internal/xworkspaces
 
-label-active = %name%
+label-active = %{T5}%name%
 label-active-background = ${colors.background-alt}
 label-active-underline= ${colors.primary}
 label-active-padding = 1
 
-label-occupied = %name%
+label-occupied = %{T5}%name%
 label-occupied-padding = 1
 
-label-urgent = %name%
+label-urgent = %{T5}%name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
-label-empty = %name%
+label-empty = %{T5}%name%
 label-empty-foreground = ${colors.disabled}
 label-empty-padding = 1
 
@@ -189,7 +189,8 @@ label-foreground = ${colors.primary}
 
 [module/updates]
 type = custom/script
-exec = dnf check-update -q | grep -v -e '^$' | wc -l
+exec = ~/.config/polybar/checkupdate.sh
+exec-if = dnf check-update -q 2>&1 /dev/null
 label = %output%
 interval = 7200
 format-prefix = " "

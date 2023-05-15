@@ -181,7 +181,7 @@ for_window [class="Blueman-manager"] floating enable enable border normal
 bindsym $mod+Shift+S exec --no-startup-id flatpak run org.flameshot.Flameshot gui
 
 exec --no-startup-id /usr/libexec/xfce-polkit
-exec --no-startup-id picom
+exec --no-startup-id picom --unredir-if-possible
 exec_always --no-startup-id .config/polybar/launch.sh
 exec git clone https://gist.github.com/85942af486eb79118467.git ~/Pictures/wallpapers || git -C ~/Pictures/wallpapers/ pull
-exec ~/.fehbg
+exec_always --no-startup-id ~/.fehbg

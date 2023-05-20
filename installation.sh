@@ -29,6 +29,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 flatpak install -y org.flameshot.Flameshot \
 	com.valvesoftware.Steam \
+	com.heroicgameslauncher.hgl \
 	com.visualstudio.code \
 	com.getpostman.Postman \
 	org.freedesktop.Platform.VulkanLayer.MangoHud \
@@ -85,3 +86,5 @@ cat << EOF | sudo tee /usr/local/bin/code && sudo chmod +x /usr/local/bin/code
 #!/bin/bash
 flatpak run com.visualstudio.code \$1 \$2 \$3 \$4 \$5
 EOF
+sudo ausearch -c 'plymouthd' --raw | audit2allow -M my-plymouthd
+sudo semodule -X 300 -i my-plymouthd.pp

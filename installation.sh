@@ -86,5 +86,12 @@ cat << EOF | sudo tee /usr/local/bin/code && sudo chmod +x /usr/local/bin/code
 #!/bin/bash
 flatpak run com.visualstudio.code \$1 \$2 \$3 \$4 \$5
 EOF
+
+echo Setting\ up\ plymout\ to\ work\ with\ NVidia\ Drivers
+
 sudo ausearch -c 'plymouthd' --raw | audit2allow -M my-plymouthd
 sudo semodule -X 300 -i my-plymouthd.pp
+
+echo fallback\ internal\ clock\ to\ RTC
+sudo timedatectl set-local-rtc false
+

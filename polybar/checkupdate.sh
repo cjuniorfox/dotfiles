@@ -10,7 +10,7 @@ write_check_file(){
 	DNF="$(dnf check-update -q 2> /dev/null | grep -v -e '^$' | wc -l)"
 	FLATPAK=0
 	if [ "$HASFLATPAK" == "1" ]; then
-		FLATPAK="$(flatpak update | grep -e [0..9]\.\ | wc -l)"
+		FLATPAK="$(flatpak update 2> /dev/null | grep -e [0..9]\.\ | wc -l)"
 	fi;
 	echo "$FLATPAK" > "$CHECKUPDATES"
 	echo "$DNF" >> "$CHECKUPDATES"
@@ -46,6 +46,6 @@ fi
 
 
 QT_UPDATES="$(expr $FLATPAK + $DNF )"
-if [ "$QT_UPDATES" != "0" ]; then
+#if [ "$QT_UPDATES" != "0" ]; then
 	echo "$QT_UPDATES";
-fi
+#fi

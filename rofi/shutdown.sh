@@ -18,7 +18,7 @@ configuration{
         location: north east;
 }
 mainbox {
-        children: [listview];
+        children: [inputbar,listview];
 }
 listview{
         border: 1px;
@@ -29,7 +29,7 @@ listview{
 EOF
 )
 
-case $(cat << EOF | rofi -dmenu -theme-str "$CONF"
+case $(cat << EOF | rofi -dmenu -theme-str "$CONF" -i -p "Shutdown?"
 $LOCK
 $LOGOUT
 

@@ -199,10 +199,10 @@ type = custom/script
 exec = ~/.config/polybar/checkupdate.sh
 exec-if = dnf check-update -q 2>&1 /dev/null
 label = %output%
-interval = 7200
+interval = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.primary}
-click-left = i3-sensible-terminal -e bash -c 'echo Install\ updates? Type\ your\ password\ to\ install\ then. && sudo dnf upgrade' 
+click-left = ~/.config/rofi/update.sh
 
 [module/powermenu]
 type = custom/menu

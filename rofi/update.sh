@@ -2,9 +2,9 @@
 
 . ~/.config/polybar/checkupdate.sh > /dev/null 2>&1
 
-VAR_ALL="All ($QT_UPDATES)"
-VAR_FLATPAK="Flatpak ($FLATPAK)"
-VAR_DNF="Dnf ($DNF)"
+VAR_ALL="All - $QT_UPDATES updates"
+VAR_FLATPAK="Flatpak - $FLATPAK updates"
+VAR_DNF="Fedora - $DNF updates"
 
 run_flatpak(){
     touch "$UPDATING_FILE"
@@ -59,8 +59,8 @@ EOF
 
 case $(cat << EOF | rofi -dmenu -theme-str "$CONF" -i -p "Apply updates?"
 $VAR_ALL
-$VAR_FLATPAK
 $VAR_DNF
+$VAR_FLATPAK
 EOF
 ) in
 "$VAR_FLATPAK")

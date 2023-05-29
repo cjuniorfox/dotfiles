@@ -162,6 +162,7 @@ smart_borders on
 smart_gaps on
 
 # Open specific applications in floating mode
+for_window [title="Azote~"] floating enable border pixel 1
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="gnome-calculator"] floating enable border pixel 1
 for_window [class="Gnome-disks"] floating enable border normal

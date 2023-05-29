@@ -29,6 +29,11 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 flatpak install -y org.flameshot.Flameshot \
 	com.valvesoftware.Steam \
+	com.valvesoftware.Steam.CompatibilityTool.Boxtron \
+	com.valvesoftware.Steam.Utility.protontricks \
+	com.valvesoftware.SteamLinki \
+	org.freedesktop.Platform.VulkanLayer.vkBasalt \
+       	com.valvesoftware.Steam.Utility.gamescope \
 	com.heroicgameslauncher.hgl \
 	com.visualstudio.code \
 	com.getpostman.Postman \
@@ -37,6 +42,8 @@ flatpak install -y org.flameshot.Flameshot \
 	org.freedesktop.Platform.GL32.nvidia-530-41-03 \
 	com.leinardi.gwe \
 	org.gnome.FileRoller
+
+#Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323
 
 #Playing games with MangoHUD, steamdeck and so on: https://www.clubedohardware.com.br/forums/topic/1609909-configurando-a-steam-flatpak-discos-mangohud-gamemode-e-remote-play/
 

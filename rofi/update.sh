@@ -2,9 +2,9 @@
 
 . ~/.config/polybar/checkupdate.sh > /dev/null 2>&1
 
-VAR_ALL="All - $QT_UPDATES updates"
-VAR_FLATPAK="Flatpak - $FLATPAK updates"
-VAR_DNF="Fedora - $DNF updates"
+VAR_ALL="All - $QT_UPDATES"
+VAR_FLATPAK="Flatpak - $FLATPAK"
+VAR_DNF="Fedora - $DNF"
 
 run_flatpak(){
     touch "$UPDATING_FILE"
@@ -41,7 +41,7 @@ configuration{
 }
 #window {
         y-offset: 32px;
-        width: 16em;
+        width: 12em;
         anchor: north east;
         location: north east;
 }
@@ -49,9 +49,7 @@ mainbox {
         children: [inputbar,listview];
 }
 listview{
-        border: 1px;
-        border-radius: 6px;
-        coluns:2;
+        coluns:1;
         lines:3;
 }
 EOF

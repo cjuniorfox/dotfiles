@@ -20,7 +20,7 @@
 background = #C3282A2E
 background-alt = #C3373B41
 foreground = #C5C8C6
-primary = #F0C674
+primary = #83CAFA
 secondary = #8ABEB7
 alert = #A54242
 disabled = #707880
@@ -49,10 +49,11 @@ module-margin = 1
 separator-foreground = ${colors.disabled}
 
 font-0 = "Liberation Mono:style=Regular:size=12;2"
-font-4 = "UbuntuMono Nerd Font:size=12;1"
 font-1 = "Font Awesome 6 Free:style=Regular:size=12;1"
 font-2 = "Font Awesome 6 Free:style=Solid:size=12;1"
 font-3 = "Font Awesome 6 Brands:size=12;1"
+font-4 = "UbuntuMono Nerd Font:size=12;1"
+font-5 = "Noto Sans:size=12:weight=normal;1
 
 modules-left = menu appmenu xworkspaces xwindow close
 modules-center = date
@@ -115,7 +116,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#F0C674} %mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F#83CAFA} %mountpoint%%{F-} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
@@ -172,27 +173,27 @@ interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 label-disconnected = 
-; %{F#F0C674}%ifname%%{F#707880} disconnected
+; %{F#83CAFA}%ifname%%{F#707880} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#F0C674}%{F-} %essid%  %downspeed%  %upspeed%
+label-connected = %{F#83CAFA}%{F-} %essid%  %downspeed%  %upspeed%
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = "%{F#F0C674}%{F-}  %downspeed%  %upspeed%"
+label-connected = "%{F#83CAFA}%{F-}  %downspeed%  %upspeed%"
 
 [module/date]
 type = internal/date
 interval = 1
 
-date = %H:%M
+date = %a %H:%M
 date-alt = %Y-%m-%d %H:%M:%S
-
+label-font=6
 label = %date%
-label-foreground = ${colors.primary}
+;label-foreground = ${colors.primary}
 
 [module/updates]
 type = custom/script

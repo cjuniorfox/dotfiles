@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ~/.config/polybar/checkupdate.sh > /dev/null 2>&1
+. ~/.config/rofi/checkupdate.sh > /dev/null 2>&1
 
 VAR_ALL="All - $QT_UPDATES"
 VAR_FLATPAK="Flatpak - $FLATPAK"

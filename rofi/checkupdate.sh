@@ -26,6 +26,10 @@ get_values_from_file(){
 	done;
 }
 
+check_internet() { 
+	ping fedoraproject.org -c 1 > /dev/null 2>&1 && return 0 || return 1; 
+}
+
 if [[ -f "$UPDATING_FILE" ]]; then
 	echo "Updating..."
 	exit 0
@@ -37,6 +41,12 @@ fi
 
 FILETIME=$(stat -c '%Z' "$CHECKUPDATES")
 FILEAGE="$(expr $CURRENTTIME - $FILETIME)"
+
+if  ! check_internet ; then
+	echo ""
+	rm "$CHECKUPDATES"
+	exit 0
+fi
 
 if [ "$FILEAGE" -gt "$TIMEOUT" ]; then
 	write_check_file

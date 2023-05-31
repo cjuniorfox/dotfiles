@@ -25,6 +25,30 @@ secondary = #8ABEB7
 alert = #A54242
 disabled = #707880
 
+[bar/tray]
+;https://github.com/phon31x/Tiny_polybar
+monitor-strict = false
+width = 40pt
+height = 25
+offset-x = 98% 
+offset-y = 32   
+override-redirect = true  
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+radius = 0
+padding-left = 0
+module-margin-left = 0
+module-margin-right = 0
+modules-right= arrow 
+tray-position = right
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 1
+tray-scale = 1.0
+tray-background = ${colors.background}
+
 [bar/i3-fedora]
 width = 100%
 height = 24pt
@@ -40,10 +64,10 @@ line-size = 3pt
 ;border-size = 4pt
 border-color = #00000000
 
-padding-left = 1
-padding-right = 1
+padding-left = 5pt
+padding-right = 5pt
 
-module-margin = 1
+module-margin = 5pt
 
 #separator = |
 separator-foreground = ${colors.disabled}
@@ -57,14 +81,14 @@ font-5 = "Noto Sans:size=12:weight=normal;1
 
 modules-left = menu appmenu xworkspaces xwindow close
 modules-center = date
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth updates tray shutdown
+modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth updates tray shutdown arrow
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true
 
-tray-position = right
+;tray-position = right
 
 ; wm-restack = generic
 ; wm-restack = bspwm
@@ -72,11 +96,11 @@ tray-position = right
 
 ; override-redirect = true
 
-[module/tray]
-type = internal/tray
-
-format-margin = 8px
-tray-spacing = 8px
+[module/arrow]
+type = custom/script
+exec = echo ""
+click-left = bash $HOME/.config/polybar/tinybar.sh
+click-right = bash $HOME/.config/polybar/tinybar.sh
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -101,7 +125,7 @@ label-empty-padding = 1
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:60:...%
-
+label-font = 6
 [module/close]
 exec = echo 
 exec-if = xdotool getactivewindow
@@ -178,9 +202,19 @@ label-disconnected =
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#83CAFA}%{F-} %essid%  %downspeed%  %upspeed%
+label-connected = %{F#83CAFA}%{F-} %essid%
 
 [module/eth]
+type = custom/script
+interval = 5
+exec = ip a | grep "inet " | grep -v "127.0.0.1" | awk '{print $2}' | awk -F"/" '{print $1}'
+;format-underline= ${colors.primary}
+format="<label>"
+format-prefix=" "
+format-prefix-foreground= ${colors.primary}
+;label-active-padding = 1
+
+[module/eth2]
 inherit = network-base
 interface-type = wired
 label-connected = "%{F#83CAFA}%{F-}  %downspeed%  %upspeed%"
@@ -197,7 +231,7 @@ label = %date%
 
 [module/updates]
 type = custom/script
-exec = ~/.config/polybar/checkupdate.sh
+exec = ~/.config/rofi/checkupdate.sh
 label = %output%
 interval = 1
 format-prefix = " "
@@ -226,7 +260,7 @@ menu-0-5-exec = i3exit shutdown
 
 [module/menu]
 type = custom/text
-content = "%{T5}  "
+content = "%{T5}%{F#83CAFA}  "
 ;click-left = jgmenu_run
 click-left = rofi -show drun 
 click-right = rofi -show combi -modes combi -combi-modes "window,drun,run"

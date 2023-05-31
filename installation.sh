@@ -4,7 +4,7 @@ sudo dnf upgrade && \
 	sudo dnf update && \
 	sudo dnf install \
 	git \
-	i3-gaps dmenu rofi xfce-polkit picom alacritty polybar jgmenu xdotool \
+	i3-gaps dmenu rofi xfce-polkit picom alacritty polybar jgmenu xdotool\
 	xfce4-power-manager lxappearance adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
 	akmod-nvidia mangohud xorg-x11-drv-nvidia-cuda nvidia-xconfig \
 	flatpak \

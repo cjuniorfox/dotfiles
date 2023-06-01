@@ -5,7 +5,7 @@ sudo dnf upgrade && \
 	sudo dnf install \
 	git \
 	i3-gaps dmenu rofi xfce-polkit picom alacritty polybar jgmenu xdotool\
-	xfce4-power-manager lxappearance adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
+	xfce4-power-manager xfce4-settings lxappearance adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
 	akmod-nvidia mangohud xorg-x11-drv-nvidia-cuda nvidia-xconfig \
 	flatpak \
 	mozilla-openh264 \
@@ -41,7 +41,8 @@ flatpak install -y org.flameshot.Flameshot \
 	org.freedesktop.Platform.GL.nvidia-530-41-03 \
 	org.freedesktop.Platform.GL32.nvidia-530-41-03 \
 	com.leinardi.gwe \
-	org.gnome.FileRoller
+	org.gnome.FileRoller \
+	com.github.tchx84.Flatseal
 
 #Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323
 

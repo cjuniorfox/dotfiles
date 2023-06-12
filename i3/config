@@ -184,3 +184,4 @@ exec --no-startup-id picom --unredir-if-possible
 exec_always --no-startup-id .config/polybar/launch.sh
 exec git clone https://gist.github.com/85942af486eb79118467.git ~/Pictures/wallpapers || git -C ~/Pictures/wallpapers/ pull
 exec_always --no-startup-id ~/.fehbg
+exec  git -C ~/.config pull

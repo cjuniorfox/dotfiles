@@ -127,7 +127,7 @@ type = internal/xwindow
 label = %title:0:60:...%
 label-font = 6
 [module/close]
-exec = BEFORE=""; while true ; do CLOSE=$([[ ! $(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2) -eq 0x0 ]] && echo  || echo ""); if [[  "$CLOSE" != "$BEFORE" ]]; then BEFORE="$CLOSE"; echo "$CLOSE"; fi;   sleep 0.05; done
+exec = ~/.config/polybar/close.sh 
 tail = true
 type = custom/script
 format = <label>

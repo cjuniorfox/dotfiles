@@ -14,6 +14,7 @@ write_check_file(){
 	fi;
 	echo "$FLATPAK" > "$CHECKUPDATES"
 	echo "$DNF" >> "$CHECKUPDATES"
+	chmod -R 555 "$CHECKUPDATES"
 }
 
 get_values_from_file(){

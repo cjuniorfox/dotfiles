@@ -127,12 +127,13 @@ type = internal/xwindow
 label = %title:0:60:...%
 label-font = 6
 [module/close]
-exec = echo 
-exec-if = xdotool getactivewindow
+exec = BEFORE=""; while true ; do CLOSE=$([[ ! $(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2) -eq 0x0 ]] && echo  || echo ""); if [[  "$CLOSE" != "$BEFORE" ]]; then BEFORE="$CLOSE"; echo "$CLOSE"; fi;   sleep 0.05; done
+tail = true
 type = custom/script
 format = <label>
 ;label = 
 click-left = xdotool getactivewindow windowquit
+click-right = xdotool getactivewindow windowquit
 #interval = 1
 [module/filesystem]
 type = internal/fs

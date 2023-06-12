@@ -42,13 +42,19 @@ flatpak install -y org.flameshot.Flameshot \
 	org.freedesktop.Platform.GL32.nvidia-530-41-03 \
 	com.leinardi.gwe \
 	org.gnome.FileRoller \
-	com.github.tchx84.Flatseal
+	com.github.tchx84.Flatseal \
+	flatpak install org.openrgb.OpenRGB
 
 #Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323
-
+#https://diolinux.com.br/aplicativos/instalar-o-openrgb.html
 #Playing games with MangoHUD, steamdeck and so on: https://www.clubedohardware.com.br/forums/topic/1609909-configurando-a-steam-flatpak-discos-mangohud-gamemode-e-remote-play/
 
-#sudo dnf group install "Fedora Workstation"
+#sudo dnf group install "Fedora Workstation
+#"
+
+wget "https://openrgb.org/releases/release_0.8/60-openrgb.rules"
+mv 60-openrgb.rules /usr/lib/udev/rules.d/60-openrgb.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
 
 wget "https://use.fontawesome.com/releases/v6.4.0/fontawesome-free-6.4.0-desktop.zip" -O /tmp/fontawesome-free-6.4.0-desktop.zip
 unzip /tmp/fontawesome-free-6.4.0-desktop.zip -d /tmp/

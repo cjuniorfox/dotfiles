@@ -2,6 +2,7 @@
 
 LOCK=" Lock"
 LOGOUT=" Logout"
+SWITCH_USER=" Switch User"
 SUSPEND=" Suspend"
 #HIBERNATE=" Hibernate"
 REBOOT=" Reboot"
@@ -30,7 +31,7 @@ EOF
 case $(cat << EOF | rofi -dmenu -theme-str "$CONF" -i -p "Shutdown?"
 $LOCK
 $LOGOUT
-
+$SWITCH_USER
 $SUSPEND
 $REBOOT
 $SHUTDOWN
@@ -40,6 +41,8 @@ EOF
  i3exit lock;;
 "$LOGOUT")
  i3exit logout;;
+"$SWITCH_USER")
+ dm-tool switch-to-greeter;;
 "$SUSPEND")
  i3exit suspend;;
 "$REBOOT")

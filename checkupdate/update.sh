@@ -1,37 +1,58 @@
 #!/bin/bash
 
-. ~/.config/rofi/checkupdate.sh > /dev/null 2>&1
+. /usr/local/bin/checkupdate.sh > /dev/null 2>&1
 
 VAR_ALL="All - $QT_UPDATES"
 VAR_FLATPAK="Flatpak - $FLATPAK"
 VAR_DNF="Fedora - $DNF"
 
+animate(){
+	ANIM="|/-\\"
+	while "$ANIMATE" = "true" ; do 
+		for (( i=0; i<${#ANIM}; i++ )); do 
+			echo "${ANIM:$i:1}" > "$PIPE";  
+			sleep 0.3; 
+		done; 
+	done
+	echo "" > "$PIPE"
+}
+
 run_flatpak(){
     touch "$UPDATING_FILE"
+    ANIMATE=true animate &
     cat << EOF | bash && notify-send "Flatpak packages updated" || notify-send "There was a error updating the system"
 flatpak update --noninteractive
 EOF
-rm "$UPDATING_FILE"
-rm "$CHECKUPDATES"
+    rm -f "$UPDATING_FILE"
+    rm -f "$CHECKUPDATES"
+    ANIMATE=""
+    . /usr/local/bin/checkupdate.sh > /dev/null 2>&1
 }
 
 run_dnf(){
     touch "$UPDATING_FILE"
+    ANIMATE=True animate &
     cat << EOF | pkexec && notify-send "System updated" || notify-send "There was a error updating the system"
 dnf upgrade -y
 EOF
-rm "$UPDATING_FILE"
-rm "$CHECKUPDATES"
+    rm -f "$UPDATING_FILE"
+    rm -f "$CHECKUPDATES"
+    ANIMATE=""
+    . /usr/local/bin/checkupdate.sh > /dev/null 2>&1
 }
 
 run_all(){
     touch "$UPDATING_FILE"
+    ANIMATE=true animate &
     cat << EOF | pkexec && notify-send "System Updated" || notify-send "There was a error updating the system"
-flatpak update --noninteractive
-dnf upgrade -y
+1flatpak update --noninteractive
+1dnf upgrade -y
+sleep 10
 EOF
-rm "$UPDATING_FILE"
-rm "$CHECKUPDATES"
+    rm -f "$UPDATING_FILE"
+    rm -f "$CHECKUPDATES"
+    ANIMATE=""
+    . /usr/local/bin/checkupdate.sh > /dev/null 2>&1
 }
 
 

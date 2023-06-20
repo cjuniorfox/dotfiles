@@ -1,0 +1,6 @@
+[Service]
+
+ExecStart=/usr/local/bin/checkupdated.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,1 @@
+    echo "Updating..." > /tmp/update.pipe

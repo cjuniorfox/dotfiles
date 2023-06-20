@@ -81,8 +81,7 @@ font-5 = "Noto Sans:size=12:weight=normal;1
 
 modules-left = menu appmenu xworkspaces xwindow
 modules-center = date
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth updates shutdown arrow
-
+modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth updates arrow shutdown
 cursor-click = pointer
 cursor-scroll = ns-resize
 

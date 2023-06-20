@@ -156,10 +156,11 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner 5
 smart_borders on
 smart_gaps on
+hide_edge_borders smart_no_gaps
 
 # Open specific applications in floating mode
 for_window [title="Azote~"] floating enable border pixel 1

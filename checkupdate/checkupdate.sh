@@ -32,10 +32,6 @@ if [[ -f "$UPDATING_FILE" ]]; then
 	return
 fi
 
-echo "$(date)" "Checking updates..." >> "$UPDATE_LOG"
-
-
-
 if [[ ! check_internet ]] ; then
 	echo ""
 	return
@@ -46,5 +42,7 @@ get_values
 
 QT_UPDATES="$(expr $FLATPAK + $DNF )"
 if [ "$QT_UPDATES" != "0" ]; then
-	echo "$QT_UPDATES";
+	echo "$QT_UPDATES"
+else
+	echo ""
 fi

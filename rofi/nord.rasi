@@ -28,13 +28,13 @@
 	nord14: #a3be8c;
 	nord15: #b48ead;
 
-    foreground:  @nord9;
-    backlight:   #ccffeedd;
-    background-color:  transparent;
+        foreground: @nord9;
+        backlight: #ccffeedd;
+        background-color:  transparent;
     
-    highlight:     underline bold #eceff4;
+        highlight: underline bold #eceff4;
 
-    transparent: rgba(46,52,64,0);
+        transparent: rgba(46,52,64,0);
 }
 
 window {
@@ -42,11 +42,10 @@ window {
     y-offset: 32px;
     location: northwest;
     anchor:   northwest;
-    transparency: "screenshot";
+    transparency: "real";
     padding: 10px;
     border:  0px;
     border-radius: 6px;
-    margin-top:32px;
     background-color: @transparent;
     spacing: 0;
     children:  [mainbox];
@@ -86,8 +85,8 @@ prompt {
 }
 
 listview {
-    columns:  2;
-    lines:  8;
+    columns: 2;
+    lines: 8;
     padding: 8px;
     border-radius: 0px 0px 6px 6px;
     border-color: #575B61;

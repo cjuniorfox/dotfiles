@@ -163,19 +163,19 @@ smart_gaps on
 hide_edge_borders smart_no_gaps
 
 # Open specific applications in floating mode
-for_window [title="Azote~"] floating enable border pixel 1
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="gnome-calculator"] floating enable border pixel 1
-for_window [class="Gnome-disks"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [title="Azote~"] floating enable
+for_window [title="alsamixer"] floating enable
+for_window [class="gnome-calculator"] floating enable 
+for_window [class="Gnome-disks"] floating enable 
+for_window [title="i3_help"] floating enable sticky enable 
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Lxappearance"] floating enable sticky enable 
+for_window [class="Nitrogen"] floating enable sticky enable 
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Thus"] floating enable border normal
-for_window [class="Blueman-manager"] floating enable enable border normal 
+for_window [class="Simple-scan"] floating enable 
+for_window [class="(?i)System-config-printer.py"] floating enable 
+for_window [class="Thus"] floating enable 
+for_window [class="Blueman-manager"] floating enable enable  
 #for_window [class="rdesktop"] floating enable
 
 bindsym $mod+Shift+S exec --no-startup-id flatpak run org.flameshot.Flameshot gui

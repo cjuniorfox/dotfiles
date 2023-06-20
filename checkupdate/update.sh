@@ -1,59 +1,64 @@
 #!/bin/bash
 
-. /usr/local/bin/checkupdate.sh > /dev/null 2>&1
+. /usr/local/bin/checkupdate.sh getvariables
 
-VAR_ALL="All - $QT_UPDATES"
-VAR_FLATPAK="Flatpak - $FLATPAK"
-VAR_DNF="Fedora - $DNF"
 
 animate(){
 	ANIM="|/-\\"
-	while "$ANIMATE" = "true" ; do 
+	while [[ -f "$UPDATING_FILE" ]] ; do 
 		for (( i=0; i<${#ANIM}; i++ )); do 
-			echo "${ANIM:$i:1}" > "$PIPE";  
+            if [[ -f "$UPDATING_FILE" ]]; then
+			    echo "${ANIM:$i:1}" >> "$PIPE";  
+            fi
 			sleep 0.5; 
 		done; 
 	done
-	echo "" > "$PIPE"
 }
 
 run_flatpak(){
     touch "$UPDATING_FILE"
-    ANIMATE=true animate &
-    cat << EOF | bash && notify-send "Flatpak packages updated" || notify-send "There was a error updating the system"
+    echo -e "$(date) Starting Flatpak update\n" | tee -a "$UPDATE_LOG"
+    animate &
+    cat << EOF | bash >> "$UPDATE_LOG" && notify-send "Flatpak packages updated" || notify-send "There was a error updating the system"
 flatpak update --noninteractive
 EOF
-    rm -f "$UPDATING_FILE"
-    rm -f "$CHECKUPDATES"
-    ANIMATE=""
-    . /usr/local/bin/checkupdate.sh > /dev/null 2>&1
+    rm -f "$UPDATING_FILE" && \
+        . /usr/local/bin/checkupdate.sh | tee -a "$PIPE"
 }
 
 run_dnf(){
     touch "$UPDATING_FILE"
-    ANIMATE=True animate &
-    cat << EOF | pkexec && notify-send "System updated" || notify-send "There was a error updating the system"
-dnf upgrade -y
+    echo -e "$(date) Starting Fedora DNF update\n" | tee -a "$UPDATE_LOG"
+    animate &
+    cat << EOF | pkexec >> "$UPDATE_LOG" && notify-send "System updated" || notify-send "There was a error updating the system"
+dnf upgrade -y 
 EOF
-    rm -f "$UPDATING_FILE"
-    rm -f "$CHECKUPDATES"
-    ANIMATE=""
-    . /usr/local/bin/checkupdate.sh > /dev/null 2>&1
+    rm -f "$UPDATING_FILE" && \
+        . /usr/local/bin/checkupdate.sh | tee -a "$PIPE"
 }
 
 run_all(){
     touch "$UPDATING_FILE"
-    ANIMATE=true animate &
-    cat << EOF | pkexec && notify-send "System Updated" || notify-send "There was a error updating the system"
+    echo -e "$(date) Starting Update...\n" | tee -a "$UPDATE_LOG"
+    animate &
+    cat << EOF | pkexec >> "$UPDATE_LOG" && notify-send "System Updated" || notify-send "There was a error updating the system"
 flatpak update --noninteractive
 dnf upgrade -y
 EOF
-    rm -f "$UPDATING_FILE"
-    rm -f "$CHECKUPDATES"
-    ANIMATE=""
-    . /usr/local/bin/checkupdate.sh > /dev/null 2>&1
+    rm -f "$UPDATING_FILE" && \
+        . /usr/local/bin/checkupdate.sh | tee -a "$PIPE"
 }
 
+if [[ -f "$UPDATING_FILE" ]]; then
+    i3-sensible-terminal -e tail -f "$UPDATE_LOG"
+	exit
+fi
+
+. /usr/local/bin/checkupdate.sh >> "$PIPE"
+
+VAR_ALL="All - $QT_UPDATES"
+VAR_FLATPAK="Flatpak - $FLATPAK"
+VAR_DNF="Fedora - $DNF"
 
 CONF=$(cat << EOF
 configuration{

@@ -233,7 +233,7 @@ label = %date%
 
 [module/updates]
 type = custom/script
-exec = tail -f /tmp/update.pipe
+exec = tail -f /tmp/update.pipe 2> /dev/null
 label = %output%
 format-prefix = " "
 format-prefix-foreground = ${colors.primary}

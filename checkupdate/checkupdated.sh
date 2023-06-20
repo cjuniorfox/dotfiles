@@ -1,8 +1,14 @@
 #!/bin/bash
-set -x
-mkfifo /tmp/update.pipe 2> /dev/null
+
+. /usr/local/bin/checkupdate.sh getvariables
+
+mkfifo "$PIPE" -m 660 2> /dev/null
+
+SLEEP=7200
 
 while true; do
-	. /usr/local/bin/checkupdate.sh > /tmp/update.pipe
-	sleep 7200
+	echo  requesting update check
+	. /usr/local/bin/checkupdate.sh | tee -a "$PIPE"
+	echo Sleeping for "$SLEEP" seconds
+	sleep "$SLEEP"
 done

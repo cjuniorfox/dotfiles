@@ -1,35 +1,30 @@
 #!/bin/bash
-
 PIPE=/tmp/update.pipe
-CHECKUPDATES="/tmp/checkupdate"; #Check update count file
-TIMEOUT=10 ; #Timeout in seconds
-CURRENTTIME=$(date +%s)
 UPDATING_FILE=/tmp/updating
+UPDATE_LOG=/tmp/update.log
 
-write_check_file(){
+touch "$UPDATE_LOG"
+chmod 660 "$UPDATE_LOG"
+
+if [[ "$1" == "getvariables" ]]; then
+	return 0
+fi;
+
+get_values(){
 	HASFLATPAK=$(flatpak --version > /dev/null 2>&1 && echo 1 || echo 0)
-	DNF="$(dnf check-update -q 2> /dev/null | grep -v -e '^$' | wc -l)"
+	echo "$(date)" Checking DNF updates... >> "$UPDATE_LOG"
+	DNF="$(dnf check-update -q | grep -v -e '^$' | wc -l)"
 	FLATPAK=0
 	if [ "$HASFLATPAK" == "1" ]; then
-		FLATPAK="$(flatpak update 2> /dev/null | grep -e [0..9]\.\ | wc -l)"
+	echo "$(date)" Checking flatpak updates >> "$UPDATE_LOG"
+		FLATPAK="$(flatpak update | grep -e [0..9]\.\ | wc -l)"
 	fi;
-	rm -f "$CHECKUPDATES"
-	echo "$FLATPAK" > "$CHECKUPDATES"
-	echo "$DNF" >> "$CHECKUPDATES"
-	chmod -R 555 "$CHECKUPDATES"
+	echo  "$(date)" "Update checked sucessfully" >> "$UPDATE_LOG"
 }
 
-get_values_from_file(){
-	for i in $(cat "$CHECKUPDATES"); do
-		if [ -z $FLATPAK ]; then
-			FLATPAK="$i";
-		else
-			DNF="$i"
-		fi
-	done;
-}
 
 check_internet() { 
+	echo "$(date)" Checking Internet connection. >> "$UPDATE_LOG"
 	ping fedoraproject.org -c 1 > /dev/null 2>&1 && return 0 || return 1; 
 }
 
@@ -37,24 +32,16 @@ if [[ -f "$UPDATING_FILE" ]]; then
 	return
 fi
 
-if  [[ ! -f "$CHECKUPDATES" ]]; then
-	write_check_file
-fi
+echo "$(date)" "Checking updates..." >> "$UPDATE_LOG"
 
-FILETIME=$(stat -c '%Z' "$CHECKUPDATES")
-FILEAGE="$(expr $CURRENTTIME - $FILETIME)"
 
-if  ! check_internet ; then
+
+if [[ ! check_internet ]] ; then
 	echo ""
-	rm "$CHECKUPDATES"
 	return
 fi
 
-if [ "$FILEAGE" -gt "$TIMEOUT" ]; then
-	write_check_file
-else
-	get_values_from_file
-fi
+get_values
 
 
 QT_UPDATES="$(expr $FLATPAK + $DNF )"

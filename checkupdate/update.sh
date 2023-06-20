@@ -11,7 +11,7 @@ animate(){
 	while "$ANIMATE" = "true" ; do 
 		for (( i=0; i<${#ANIM}; i++ )); do 
 			echo "${ANIM:$i:1}" > "$PIPE";  
-			sleep 0.3; 
+			sleep 0.5; 
 		done; 
 	done
 	echo "" > "$PIPE"
@@ -45,9 +45,8 @@ run_all(){
     touch "$UPDATING_FILE"
     ANIMATE=true animate &
     cat << EOF | pkexec && notify-send "System Updated" || notify-send "There was a error updating the system"
-1flatpak update --noninteractive
-1dnf upgrade -y
-sleep 10
+flatpak update --noninteractive
+dnf upgrade -y
 EOF
     rm -f "$UPDATING_FILE"
     rm -f "$CHECKUPDATES"

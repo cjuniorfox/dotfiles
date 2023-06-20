@@ -4,7 +4,7 @@ UPDATING_FILE=/tmp/updating
 UPDATE_LOG=/tmp/update.log
 
 touch "$UPDATE_LOG"
-chmod 660 "$UPDATE_LOG"
+chmod 666 "$UPDATE_LOG"
 
 if [[ "$1" == "getvariables" ]]; then
 	return 0

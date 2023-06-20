@@ -2,7 +2,7 @@
 
 . /usr/local/bin/checkupdate.sh getvariables
 
-mkfifo "$PIPE" -m 660 2> /dev/null
+mkfifo "$PIPE" -m 666 2> /dev/null
 
 SLEEP=7200
 

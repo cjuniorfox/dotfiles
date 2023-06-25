@@ -15,6 +15,7 @@ echo Creating\ network\ bridge\ device
 
 nmcli connection add type bridge ifname br0 con-name Bridged\ Network\ \(br0\)
 nmcli connection add type bridge-slave ifname enp6s0 master br0 con-name Wired\ Bridged\ \(br0\)
+nmcli connection modify Bridged\ Network\ \(br0\) bridge.stp no
 nmcli connection down Wired\ connection\ 1
 nmcli connection up Bridged\ Network\ \(br0\)
 nmcli connection show --active

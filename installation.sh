@@ -4,7 +4,7 @@ sudo dnf upgrade && \
 	sudo dnf update && \
 	sudo dnf install \
 	git \
-	i3-gaps dmenu rofi xfce-polkit picom alacritty polybar jgmenu xdotool\
+	i3-gaps dmenu rofi xfce-polkit picom kitty polybar jgmenu xdotool\
 	xfce4-power-manager xfce4-settings lxappearance adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
 	akmod-nvidia mangohud xorg-x11-drv-nvidia-cuda nvidia-xconfig \
 	flatpak \
@@ -51,6 +51,12 @@ flatpak install -y org.flameshot.Flameshot \
 
 #sudo dnf group install "Fedora Workstation
 #"
+
+#Load modules for RGB
+cat << EOF | sudo tee /etc/modules-load.d/i2c.conf
+i2c-dev
+i2c-piix4
+EOF
 
 wget "https://openrgb.org/releases/release_0.8/60-openrgb.rules"
 mv 60-openrgb.rules /usr/lib/udev/rules.d/60-openrgb.rules

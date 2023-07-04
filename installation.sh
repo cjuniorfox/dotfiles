@@ -31,6 +31,7 @@ flatpak install -y org.flameshot.Flameshot \
 	com.valvesoftware.Steam \
 	com.valvesoftware.Steam.CompatibilityTool.Boxtron \
 	com.valvesoftware.Steam.Utility.protontricks \
+	com.valvesoftware.Steam.Utility.gamescope \
 	com.valvesoftware.SteamLinki \
 	org.freedesktop.Platform.VulkanLayer.vkBasalt \
        	com.valvesoftware.Steam.Utility.gamescope \

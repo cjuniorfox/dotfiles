@@ -276,7 +276,7 @@ menu-0-4 = 
 menu-0-5 = Po
 ;       v     
 
-menu-0-0-exec = firefox
+menu-0-0-exec = flatpak run org.mozilla.Firefox
 menu-0-1-exec = i3-sensible-terminal
 menu-0-2-exec = flatpak run com.valvesoftware.Steam
 menu-0-3-exec = flatpak run com.visualstudio.code

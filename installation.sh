@@ -23,11 +23,13 @@ sudo dnf install xrdp -y && \
 	sudo firewall-cmd --permanent --add-port=3389/tcp && sudo firewall-cmd --reload && \
 	sudo chcon --type=bin_t /usr/sbin/xrdp  && sudo chcon --type=bin_t /usr/sbin/xrdp-sesman 
 
-sudo dnf remove -y volumeicon xfce4-terminal
+sudo dnf remove -y volumeicon xfce4-terminal firefox
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-flatpak install -y org.flameshot.Flameshot \
+flatpak install -y \
+	org.mozilla.Firefox
+	org.flameshot.Flameshot \
 	com.valvesoftware.Steam \
 	com.valvesoftware.Steam.CompatibilityTool.Boxtron \
 	com.valvesoftware.Steam.Utility.protontricks \
@@ -44,14 +46,13 @@ flatpak install -y org.flameshot.Flameshot \
 	com.leinardi.gwe \
 	org.gnome.FileRoller \
 	com.github.tchx84.Flatseal \
-	flatpak install org.openrgb.OpenRGB
+	org.openrgb.OpenRGB
 
 #Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323
 #https://diolinux.com.br/aplicativos/instalar-o-openrgb.html
 #Playing games with MangoHUD, steamdeck and so on: https://www.clubedohardware.com.br/forums/topic/1609909-configurando-a-steam-flatpak-discos-mangohud-gamemode-e-remote-play/
 
-#sudo dnf group install "Fedora Workstation
-#"
+#sudo dnf group install "Fedora Workstation"
 
 #Load modules for RGB
 cat << EOF | sudo tee /etc/modules-load.d/i2c.conf

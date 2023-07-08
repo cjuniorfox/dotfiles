@@ -38,9 +38,9 @@ $SHUTDOWN
 EOF
 ) in
 "$LOCK")
- i3exit lock;;
+ i3exit lock ; swaylock -f -c 000000;;
 "$LOGOUT")
- i3exit logout;;
+ i3exit logout ; hyprctl dispatch exit;;
 "$SWITCH_USER")
  dm-tool switch-to-greeter;;
 "$SUSPEND")

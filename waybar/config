@@ -1,0 +1,105 @@
+{
+	"layer": "top",
+	"spacing": 5,
+	"modules-left": ["custom/menu","wlr/workspaces","hyprland/window"],
+	"modules-center": ["clock"],
+	"modules-right": ["tray","disk","pulseaudio","memory","cpu","network","custom/updates","custom/shutdown"],
+	"custom/menu": {
+		"format" : "<span color='#83CAFa'></span>",
+		"on-click" : "~/.config/rofi/menu.sh",
+		"on-click-right" : "~/.config/rofi/menurun.sh"
+	},
+	"clock": {
+        	"format": "{:%a %H:%M}",
+        	"format-alt": "{:%A, %B %d, %Y (%R)}",
+        	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+        	"calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                },
+        	"actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                }
+    	},
+	"disk":{
+		"format":"<span color='#83CAFA'></span> / {percentage_used}%"
+	},
+	"pulseaudio": {
+    		"format": "<span color='#83CAFA'>{icon}</span> {volume}%",
+    		"format-bluetooth": "{volume}% {icon}",
+    		"format-muted": "",
+    		"format-icons": {
+        		"headphone": "",
+        		"hands-free": "",
+        		"headset": "",
+        		"phone": "",
+        		"portable": "",
+        		"car": "",
+        		"default": ["", ""]
+    		},
+    		"scroll-step": 1,
+    		"on-click": "pavucontrol",
+    		"ignored-sinks": ["Easy Effects Sink"]
+	},
+	"custom/updates": {
+		"exec": "tail -f /tmp/update.pipe 2> /dev/null",
+		"on-click" : "update.sh",
+		"format" : "<span color='#83CAFA'></span> {}"
+	},
+	"custom/shutdown": {
+		"format":"",
+		"on-click": "~/.config/rofi/shutdown.sh"
+	},
+	"hyprland/workspaces": {
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"format": "{id} {icon}",
+		"format-icons": {
+			"active": "",
+			"default": ""
+		},
+	},
+	"wlr/workspaces": {
+     		"format": "{icon}",
+		"on-click" : "activate",
+    	 	"on-scroll-up": "hyprctl dispatch workspace e+1",
+     		"on-scroll-down": "hyprctl dispatch workspace e-1"
+	},
+	"network": {
+    		"interface": "br0",
+    		"format": "{ifname}",
+    		"format-wifi": "{essid} ({signalStrength}%) ",
+    		"format-ethernet": "<span font='Font Awesome 6 Free' color='#83CAFA'></span> {ipaddr}/{cidr}",
+    		"format-disconnected": "", //An empty format will hide the module.
+    		"tooltip-format": "{ifname} via {gwaddr} ",
+    		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    		"tooltip-format-ethernet": "{ifname} ",
+    		"tooltip-format-disconnected": "Disconnected",
+    		"max-length": 50
+	},
+	"tray": {
+        	"show-passive-items": "true",
+		"spacing" : "10"
+    	},
+	"memory":{
+		"format":"<span color='#83CAFA'></span> {used:0.1f}G/{total:0.1f}G"
+	},
+	"cpu":{
+		"format":"<span color='#83CAFA'></span> {}% {avg_frequency}Ghz"
+	} 
+}

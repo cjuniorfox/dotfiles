@@ -1,0 +1,47 @@
+* {
+	border: none;
+	font-size: 1.02em;
+	font-family: "Liberation Mono";
+}
+
+window#waybar {
+	background: rgba(40,42,46,0.8);
+	color: #C5C8C6;
+}
+
+.modules-left {
+	margin-left: .5em;
+}
+
+#custom-menu, #workspaces, #window, #clock, #tray, #disk, #pulseaudio, #memory, #cpu, #network, #custom-updates, #custom-shutdown {
+	margin: 0 .5em;
+}
+
+
+#custom-menu {
+	font-size: 1.3em;
+}
+#memory{
+}
+#window{
+	font-family: "Noto Sans";
+}
+#workspaces button {
+	font-family: "Noto Sans";
+	color: #C5C8C6;
+	border-radius: 0;
+	background-color: transparent;
+}
+
+#workspaces button:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+#workspaces button.active {
+	background-color: rgba(255,255,255,0.2);
+	border-bottom: 2px solid #fff;
+}
+
+#clock {
+	font-family: "Noto Sans";
+}

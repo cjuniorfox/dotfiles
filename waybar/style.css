@@ -1,7 +1,7 @@
 * {
 	border: none;
-	font-size: 1.02em;
-	font-family: "Liberation Mono";
+	font-size: 1.0em;
+	font-family: "Noto Sans";
 }
 
 window#waybar {
@@ -44,4 +44,5 @@ window#waybar {
 
 #clock {
 	font-family: "Noto Sans";
+	font-size: 1.1em;
 }

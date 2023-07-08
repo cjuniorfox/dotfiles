@@ -28,7 +28,8 @@ listview{
 EOF
 )
 
-case $(cat << EOF | rofi -dmenu -theme-str "$CONF" -i -p "Shutdown?"
+kill $(cat /run/user/$UID/rofi.pid) || \
+	case $(cat << EOF | rofi -dmenu -theme-str "$CONF" -i -p "Shutdown?"
 $LOCK
 $LOGOUT
 $SWITCH_USER

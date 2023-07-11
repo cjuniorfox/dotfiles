@@ -4,13 +4,13 @@ sudo dnf upgrade && \
 	sudo dnf update && \
 	sudo dnf install \
 	git \
-	i3-gaps dmenu rofi xfce-polkit picom kitty polybar jgmenu xdotool\
-	xfce4-power-manager xfce4-settings lxappearance adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
+	sddm i3-gaps dmenu rofi xfce-polkit picom kitty polybar jgmenu xdotool\
+	xfce4-power-manager xfce4-settings adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
 	akmod-nvidia mangohud xorg-x11-drv-nvidia-cuda nvidia-xconfig \
 	flatpak \
 	mozilla-openh264 \
 	toolbox \
-	gvfs-smb vim \
+	gvfs-smb nautilus vim \
 	steam-devices \
 	toolbox \
 	gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav \
@@ -23,12 +23,13 @@ sudo dnf install xrdp -y && \
 	sudo firewall-cmd --permanent --add-port=3389/tcp && sudo firewall-cmd --reload && \
 	sudo chcon --type=bin_t /usr/sbin/xrdp  && sudo chcon --type=bin_t /usr/sbin/xrdp-sesman 
 
-sudo dnf remove -y volumeicon xfce4-terminal firefox
+sudo dnf remove -y lightdm volumeicon xfce4-terminal thunar
+
+sudo systemctl enable sddm
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y \
-	org.mozilla.Firefox
 	org.flameshot.Flameshot \
 	com.valvesoftware.Steam \
 	com.valvesoftware.Steam.CompatibilityTool.Boxtron \

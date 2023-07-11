@@ -60,6 +60,11 @@
 		"on-click" : "update.sh",
 		"format" : "<span color='#83CAFA'></span> {}"
 	},
+	"custom/notifications" : {
+		"exec": "COUNT=$(dunstctl count waiting) && [[ ! $COUNT -eq 0 ]] && echo $COUNT || echo ''",
+		"on-click" : "dunstctl history-pop",
+		"format" : "<span color='#83CAFA'></span> {}"
+	},
 	"custom/shutdown": {
 		"format":"",
 		"on-click": "~/.config/rofi/shutdown.sh"

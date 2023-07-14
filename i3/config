@@ -204,5 +204,5 @@ exec --no-startup-id /usr/libexec/xfce-polkit
 exec --no-startup-id picom --unredir-if-possible
 exec_always --no-startup-id .config/polybar/launch.sh
 exec git -C ~/.config pull
-exec git clone https://gist.github.com/85942af486eb79118467.git ~/Pictures/wallpapers || git -C ~/Pictures/wallpapers/ pull
+exec git clone https://gist.github.com/85942af486eb79118467.git "$(xdg-user-dir PICTURES)/wallpapers" || git -C "$(xdg-user-dir PICTURES)/wallpapers/" pull
 exec_always --no-startup-id ~/.fehbg

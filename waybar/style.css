@@ -1,6 +1,6 @@
 * {
 	border: none;
-	font-size: 1rem;
+	font-size: 12px;
 	font-family: "Noto Sans";
 }
 
@@ -10,26 +10,25 @@ window#waybar {
 }
 
 .modules-left {
-	margin-left: .5rem;
+	margin-left: 8px;
 }
 .modules-right {
-	margin-right: .5rem;
+	margin-right: 8px;
 }
 
 #custom-menu, #workspaces, #window, #clock, #tray, #disk, #pulseaudio, #memory, #cpu, #network, #custom-updates, #custom-shutdown {
-	margin: 0 .2rem;
+	margin: 0 3px;
 }
 
 
 #custom-menu {
-	font-size: 1.3rem;
+	font-size: 14px;
 }
 #memory{
 }
 #battery.warning { color: orange; }
 #battery.critical { color: red; }
 #window{
-	font-family: "Noto Sans";
 }
 #workspaces button {
 	font-family: "Noto Sans";
@@ -44,10 +43,9 @@ window#waybar {
 
 #workspaces button.active {
 	background-color: rgba(255,255,255,0.2);
-	border-bottom: 2px solid #fff;
 }
 
 #clock {
 	font-family: "Noto Sans";
-	font-size: 1.1rem;
+	font-size: 14px;
 }

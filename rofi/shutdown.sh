@@ -13,8 +13,7 @@ configuration{
         show-icons:false;
 }
 #window {
-        y-offset: 32px;
-        width: 16em;
+        width: 368px;
         anchor: north east;
         location: north east;
 }
@@ -28,7 +27,7 @@ listview{
 EOF
 )
 
-kill $(cat /run/user/$UID/rofi.pid) || \
+kill $(cat /run/user/$UID/rofi.pid) 2> /dev/null || \
 	case $(cat << EOF | rofi -dmenu -theme-str "$CONF" -i -p "Shutdown?"
 $LOCK
 $LOGOUT

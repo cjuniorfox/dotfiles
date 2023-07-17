@@ -38,14 +38,13 @@
 }
 
 window {
-    width: 32em;
-    y-offset: 1em;
+    width: 735px;
     location: northwest;
     anchor:   northwest;
     transparency: "real";
-    margin: 0.625em;
+    margin: 14px;
     border:  0;
-    border-radius: 0.375em;
+    border-radius: 8px;
     background-color: @transparent;
     spacing: 0;
     children:  [mainbox];
@@ -59,18 +58,18 @@ mainbox {
 
 message {
     color: @nord0;
-    padding: 0.3125em;
+    padding: 7px;
     border-color: @foreground;
-    border:  0 0.125em 0.125em 0.125em;
+    border:  0 3px 3px 3px;
     background-color: @nord7;
 }
 
 inputbar {
     color: @nord6;
-    padding: 0.6875em;
+    padding: 16px;
     background-color: #373B41;
-    border: 0.0625em;
-    border-radius:  0.375em 0.375em 0 0;
+    border: 1px;
+    border-radius: 8px 8px 0 0;
     border-color: #575B61;
 }
 
@@ -80,16 +79,16 @@ entry, prompt, case-indicator {
 }
 
 prompt {
-    margin: 0 0.0625em 0 0 ;
+    margin: 0 1px 0 0 ;
 }
 
 listview {
     columns: 2;
     lines: 8;
-    padding: 0.5em;
-    border-radius: 0 0 0.375em 0.375em ;
+    padding: 11px;
+    border-radius: 0 0 8px 8px ;
     border-color: #575B61;
-    border: 0 0.0625em 0.0625em 0.0625em;
+    border: 0 1px 1px 1px;
     background-color: #282A2EDD;
     dynamic: true;
     layout: vertical;
@@ -97,9 +96,9 @@ listview {
 
 element {
     orientation: horizontal;
-    padding: 0.1875em;
+    padding: 4px;
     vertical-align: 0.5;
-    border-radius: 0.25em;
+    border-radius: 6px;
     background-color: transparent;
     color: @foreground;
     text-color: rgb(216, 222, 233);
@@ -118,7 +117,7 @@ element selected.normal {
 }
 
 element-text {
-    padding:          0.625em;
+    padding:          14px;
     background-color: inherit;
     text-color:       inherit;
     vertical-align:              0.5;
@@ -126,16 +125,16 @@ element-text {
 }
 
 button {
-    padding: 0.375em;
+    padding: 8px;
     color: @foreground;
     horizontal-align: 0.5;
 
-    border: 0.125em 0 0.125em 0.125em;
-    border-radius: 0.5em 0 0 0.5em;
+    border: 3px 0 3px 3px;
+    border-radius: 11px 0 0 11px;
     border-color: @foreground;
 }
 
 button selected normal {
-    border: 0.125em 0 0.125em 0.125em;
+    border: 3px 0 3px 3px;
     border-color: @foreground;
 }

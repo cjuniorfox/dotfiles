@@ -1,6 +1,6 @@
 configuration {
     font: "Envy Code R 12";
-    line-margin: 0.75em;
+    line-margin: 18px;
     display-ssh:    "";
     display-run:    "";
     display-drun:   "";

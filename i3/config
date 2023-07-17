@@ -115,6 +115,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 #dunst history pop
 bindsym $mod+p exec --no-startup-id dunstctl history-pop
 bindsym $mod+Shift+p exec --no-startup-id dunstctl close
+
+#lock screen
+bindsym $mod+Ctrl+l exec --no-startup-id i3lock
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -204,5 +208,5 @@ exec --no-startup-id /usr/libexec/xfce-polkit
 exec --no-startup-id picom --unredir-if-possible
 exec_always --no-startup-id .config/polybar/launch.sh
 exec git -C ~/.config pull
-exec git clone https://gist.github.com/85942af486eb79118467.git ~/Pictures/wallpapers || git -C ~/Pictures/wallpapers/ pull
+exec git clone https://gist.github.com/85942af486eb79118467.git "$(xdg-user-dir PICTURES)/wallpapers" || git -C "$(xdg-user-dir PICTURES)/wallpapers/" pull
 exec_always --no-startup-id ~/.fehbg

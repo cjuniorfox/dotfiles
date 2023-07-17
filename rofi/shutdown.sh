@@ -38,7 +38,7 @@ $SHUTDOWN
 EOF
 ) in
 "$LOCK")
- i3exit lock ; swaylock -f -c 000000;;
+ i3exit lock ; ~/.config/hyprland/scripts/lockscreen;;
 "$LOGOUT")
  i3exit logout ; hyprctl dispatch exit;;
 "$SWITCH_USER")

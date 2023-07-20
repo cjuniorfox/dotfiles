@@ -2,6 +2,7 @@
 PIPE=/tmp/update.pipe
 UPDATING_FILE=/tmp/updating
 UPDATE_LOG=/tmp/update.log
+QT_UPDATE=/tmp/qtupdate
 
 touch "$UPDATE_LOG"
 chmod 666 "$UPDATE_LOG"
@@ -19,6 +20,7 @@ get_values(){
 	echo "$(date)" Checking flatpak updates >> "$UPDATE_LOG"
 		FLATPAK="$(flatpak update | grep -e [0..9]\.\ | wc -l)"
 	fi;
+	echo -e "DNF=$DNF\nFLATPAK=$FLATPAK\nALL=$(expr $DNF + $FLATPAK)" > "$QT_UPDATE"
 	echo  "$(date)" "Update checked sucessfully" >> "$UPDATE_LOG"
 }
 

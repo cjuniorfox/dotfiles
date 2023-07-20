@@ -38,15 +38,8 @@ EOF
 }
 
 run_all(){
-    touch "$UPDATING_FILE"
-    echo -e "$(date) Starting Update...\n" | tee -a "$UPDATE_LOG"
-    animate &
-    cat << EOF | pkexec >> "$UPDATE_LOG" && notify-send "System Updated" || notify-send "There was a error updating the system"
-flatpak update --noninteractive
-dnf upgrade -y
-EOF
-    rm -f "$UPDATING_FILE" && \
-        . /usr/local/bin/checkupdate.sh | tee -a "$PIPE"
+	run_dnf
+	run_flatpak
 }
 
 if [[ -f "$UPDATING_FILE" ]]; then
@@ -54,9 +47,9 @@ if [[ -f "$UPDATING_FILE" ]]; then
 	exit
 fi
 
-. /usr/local/bin/checkupdate.sh >> "$PIPE"
+. "$QT_UPDATE" >> "$PIPE"
 
-VAR_ALL="All - $QT_UPDATES"
+VAR_ALL="All - $ALL"
 VAR_FLATPAK="Flatpak - $FLATPAK"
 VAR_DNF="Fedora - $DNF"
 
@@ -65,7 +58,6 @@ configuration{
         show-icons:false;
 }
 #window {
-        y-offset: 32px;
         width: 12em;
         anchor: north east;
         location: north east;

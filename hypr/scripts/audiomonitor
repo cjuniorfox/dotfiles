@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+WOBSOCK=$XDG_RUNTIME_DIR/wob.sock
+rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob &
+
+background_color='#000000FF'
+border_color='#FFFFFFFF'
+bar_color='#FFFFFFFF'
+
+SECONDS=0
+
+pactl subscribe | grep --line-buffered "sink" |
+	while read -r _; do
+		volume_amount="$(amixer sget Master | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1)"
+		ACTUAL="${volume_amount}"
+		#ACTUAL="${volume_amount} ${background_color} ${border_color} ${bar_color}"
+		if [[ "$ACTUAL" != "$BEFORE" && "$SECONDS" -gt '1'  ]]; then
+			echo "$ACTUAL" > $WOBSOCK
+			paplay /usr/share/sounds/freedesktop/stereo/bell.oga
+		fi
+		BEFORE="$ACTUAL"
+	done;

@@ -3,7 +3,7 @@
 	"spacing": 5,
 	"modules-left": ["custom/menu","wlr/workspaces","hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["tray","idle_inhibitor","disk","pulseaudio","memory","cpu","network","battery","custom/updates","custom/shutdown"],
+	"modules-right": ["tray","custom/blockkeybind","idle_inhibitor","disk","pulseaudio","memory","cpu","network","battery","custom/dunst","custom/updates","custom/shutdown"],
 	"custom/menu": {
 		"format" : "<span color='#83CAFa'></span>",
 		"on-click" : "~/.config/rofi/menu.sh",
@@ -55,15 +55,25 @@
     		"on-click": "pavucontrol",
     		"ignored-sinks": ["Easy Effects Sink"]
 	},
+	"custom/blockkeybind":{
+		"exec": "~/.config/hypr/scripts/blockkeys",
+		"format" : "<span color='#CA5A9A'>{}</span>",
+		"on-click" : "hyprctl dispatch submap reset"
+	},
 	"custom/updates": {
 		"exec": "tail -f /tmp/update.pipe 2> /dev/null",
 		"on-click" : "update.sh",
 		"format" : "<span color='#83CAFA'></span> {}"
 	},
-	"custom/notifications" : {
-		"exec": "COUNT=$(dunstctl count waiting) && [[ ! $COUNT -eq 0 ]] && echo $COUNT || echo ''",
-		"on-click" : "dunstctl history-pop",
-		"format" : "<span color='#83CAFA'></span> {}"
+	"custom/dunst" : {
+		"exec": "~/.config/waybar/scripts/dunst.sh",
+    		"on-click": "dunstctl set-paused toggle",
+    		"restart-interval": 1,
+		"on-scroll-down": "[ $(dunstctl is-paused) = false ] && dunstctl history-pop",
+		"on-click-right": "dunstctl close",
+		"on-scroll-up": "dunstctl close",
+		"return-type": "json",
+		"alt" : "Scroll the mouse wheel to show notifications"
 	},
 	"custom/shutdown": {
 		"format":"",

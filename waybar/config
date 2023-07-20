@@ -3,7 +3,7 @@
 	"spacing": 5,
 	"modules-left": ["custom/menu","wlr/workspaces","hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["tray","idle_inhibitor","disk","pulseaudio","memory","cpu","network","battery","custom/dunst","custom/updates","custom/shutdown"],
+	"modules-right": ["tray","custom/blockkeybind","idle_inhibitor","disk","pulseaudio","memory","cpu","network","battery","custom/dunst","custom/updates","custom/shutdown"],
 	"custom/menu": {
 		"format" : "<span color='#83CAFa'></span>",
 		"on-click" : "~/.config/rofi/menu.sh",
@@ -54,6 +54,11 @@
     		"scroll-step": 1,
     		"on-click": "pavucontrol",
     		"ignored-sinks": ["Easy Effects Sink"]
+	},
+	"custom/blockkeybind":{
+		"exec": "~/.config/hypr/scripts/blockkeys",
+		"format" : "<span color='#CA5A9A'>{}</span>",
+		"on-click" : "hyprctl dispatch submap reset"
 	},
 	"custom/updates": {
 		"exec": "tail -f /tmp/update.pipe 2> /dev/null",

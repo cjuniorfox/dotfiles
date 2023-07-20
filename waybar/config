@@ -105,7 +105,7 @@
     		"max-length": 50
 	},
 	"tray": {
-		"spacing" : 10,
+		"spacing" : 3,
 		"icon-size" : 16
     	},
 	"memory":{

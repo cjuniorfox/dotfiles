@@ -13,20 +13,22 @@ fi;
 
 get_values(){
 	HASFLATPAK=$(flatpak --version > /dev/null 2>&1 && echo 1 || echo 0)
-	echo "$(date)" Checking DNF updates... >> "$UPDATE_LOG"
+	printf  '%s Checking DNF updates...\n' "$(date)" | tee -a "$UPDATE_LOG" >&2
 	DNF="$(dnf check-update -q | grep -v -e '^$' | wc -l)"
+	printf '%s dnf updates found\n' "$DNF" | tee -a "$UPDATE_LOG" >&2
 	FLATPAK=0
 	if [ "$HASFLATPAK" == "1" ]; then
-	echo "$(date)" Checking flatpak updates >> "$UPDATE_LOG"
+	printf '%s Checking flatpak updates\n' "$(date)" | tee -a "$UPDATE_LOG" >&2
 		FLATPAK="$(flatpak update | grep -e [0..9]\.\ | wc -l)"
 	fi;
+	printf '%s flatpak updates found' "$FLATPAK" | tee -a "$UPDATE_LOG" >&2
 	echo -e "DNF=$DNF\nFLATPAK=$FLATPAK\nALL=$(expr $DNF + $FLATPAK)" > "$QT_UPDATE"
-	echo  "$(date)" "Update checked sucessfully" >> "$UPDATE_LOG"
+	printf '%s Update checked sucessfully' "$(date)" | tee -a "$UPDATE_LOG" >&2
 }
 
 
 check_internet() { 
-	echo "$(date)" Checking Internet connection. >> "$UPDATE_LOG"
+	printf '%s Checking Internet connection.\n' "$(date)" | tee -a "$UPDATE_LOG" >&2
 	ping fedoraproject.org -c 1 > /dev/null 2>&1 && return 0 || return 1; 
 }
 

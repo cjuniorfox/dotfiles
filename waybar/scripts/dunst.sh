@@ -18,5 +18,5 @@ dbus-monitor path='/org/freedesktop/Notifications',interface='org.freedesktop.DB
     else
 	    TEXT="$ICON"
     fi
-    printf '{"text": "%s", "alt": "%s", "class": "%s"}\n' "$TEXT" "$CLASS" "%WAITING"
+    printf '{"text": "%s", "class": "%s"}\n' "$TEXT" "$CLASS"
   done

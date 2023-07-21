@@ -15,7 +15,7 @@ pactl subscribe | grep --line-buffered "sink" |
 		volume_amount="$(amixer sget Master | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1)"
 		ACTUAL="${volume_amount}"
 		#ACTUAL="${volume_amount} ${background_color} ${border_color} ${bar_color}"
-		if [[ "$ACTUAL" != "$BEFORE" && "$SECONDS" -gt '1'  ]]; then
+		if [[ "$ACTUAL" != "$BEFORE" && "$SECONDS" -gt '1' && "$BEFORE" != ''  ]]; then
 			echo "$ACTUAL" > $WOBSOCK
 			paplay /usr/share/sounds/freedesktop/stereo/bell.oga
 		fi

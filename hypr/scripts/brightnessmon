@@ -1,16 +1,17 @@
 #!/bin/bash
 
 
-WOBSOCK=$XDG_RUNTIME_DIR/wob_b.sock
+WOBSOCK="$XDG_RUNTIME_DIR/$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '').sock"
 rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob &
+brightnessctl="brightnessctl $@"
 
-max_brightness="$(brightnessctl g)"
+max_brightness="$($brightnessctl g)"
 
 SECONDS=0
 
 dbus-monitor interface='org.freedesktop.DBus.Properties',member='PropertiesChanged' --profile |
 	while read -r _; do
-		brightness_amount="$(brightnessctl i | grep '%' | awk -F'(' '{print $2}' | awk -F'%' '{print $1}')"
+		brightness_amount="$($brightnessctl i | grep '%' | awk -F'(' '{print $2}' | awk -F'%' '{print $1}')"
 		ACTUAL="${brightness_amount}"
 		#ACTUAL="${brighness_amount} ${background_color} ${border_color} ${bar_color}"
 		if [[ "$ACTUAL" != "$BEFORE" && "$SECONDS" -gt '1' ]]; then

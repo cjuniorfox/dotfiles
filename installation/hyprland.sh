@@ -1,11 +1,10 @@
 #!/bin/bash
 sudo dnf upgrade && \
-	sudo dnf install "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
 	sudo dnf update && \
 	sudo dnf groupinstall Fonts Administrative\ Tools Hardware\ Support && \
 	sudo dnf install \
 	git \
-	sddm rofi-wayland xfce-polkit picom kitty polybar \
+	sddm rofi-wayland xfce-polkit picom kitty wob \
 	xfce4-settings adwaita-gtk2-theme adwaita-cursor-theme adwaita-blue-gtk-theme \
 	flatpak \
 	mozilla-openh264 \
@@ -14,25 +13,19 @@ sudo dnf upgrade && \
 	toolbox \
 	gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav \
 	--exclude=gstreamer1-plugins-bad-free-devel \
-	blueman \
-	akmod-nvidia xorg-x11-drv-nvidia-cuda nvidia-xconfig
+	blueman
 
 sudo dnf copr enable solopasha/hyprland && \
 	sudo dnf install hyprland hyprland-contrib hyprland-plugins hyprpaper hyprshot waybar-hyprland xdg-desktop-portal-hyprland \
 	aajohan-comfortaa-fonts swayidle swaylock wlr-randr
-#sudo dnf install xrdp -y && \
-#	sudo systemctl enable xrdp --now && \
-#	sudo firewall-cmd --permanent --add-port=3389/tcp && sudo firewall-cmd --reload && \
-#	sudo chcon --type=bin_t /usr/sbin/xrdp  && sudo chcon --type=bin_t /usr/sbin/xrdp-sesman 
 
-sudo dnf remove -y lightdm volumeicon xfce4-terminal thunar
+#sudo dnf remove -y lightdm volumeicon xfce4-terminal thunar
 
 sudo systemctl enable sddm
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y \
-	org.flameshot.Flameshot \
 	com.visualstudio.code \
 	com.getpostman.Postman \
 	com.github.hluk.copyq \

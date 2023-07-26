@@ -4,7 +4,7 @@
 	"spacing": 4,
 	"modules-left": ["custom/menu","wlr/workspaces","hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["tray","custom/block_keybind","idle_inhibitor","disk","pulseaudio","memory","cpu","battery","custom/dunst","custom/updates","custom/shutdown"],
+	"modules-right": ["disk","memory","cpu","battery","tray","custom/dunst","custom/block_keybind","idle_inhibitor","custom/updates","pulseaudio","custom/shutdown"],
 	"custom/menu": {
 		"format" : "",
 		"on-click" : "sleep .1 && ~/.config/rofi/menu.sh",
@@ -85,6 +85,11 @@
 		"on-scroll-down": "hyprctl dispatch workspace e-1",
 		"format": "{id} {icon}",
 		"format-icons": {
+			"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
 			"active": "",
 			"default": ""
 		},

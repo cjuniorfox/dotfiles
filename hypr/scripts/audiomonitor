@@ -10,7 +10,7 @@ bar_color='#FFFFFFFF'
 
 SECONDS=0
 
-pactl subscribe | grep --line-buffered "sink" |
+LANG=en pactl subscribe | grep --line-buffered "sink" |
 	while read -r _; do
 		volume_amount="$(amixer sget Master | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1)"
 		ACTUAL="${volume_amount}"

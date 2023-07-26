@@ -10,7 +10,7 @@ sudo wget "https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedor
 rpm-ostree update && \
 	rpm-ostree override replace --experimental xorg-x11-server-Xwayland --from repo='copr:copr.fedorainfracloud.org:solopasha:xwayland'
 
-rpm-ostree override remove firefox-langpacks firefox
+rpm-ostree override remove firefox-langpacks firefox xdg-desktop-portal-wlr
 
 rpm-ostree install \
 	brightnessctl \

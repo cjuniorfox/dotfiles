@@ -19,8 +19,6 @@ sudo dnf upgrade -y && \
 	hyprshot \
 	kitty \
 	nautilus \
-	network-manager-applet \
-	pavucontrol \
 	polkit-gnome \
 	pulseaudio-utils \
 	rofi-wayland \

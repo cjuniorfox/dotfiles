@@ -1,6 +1,15 @@
-[Service]
+[Unit]
+Description=Check for updates and feed the output to a pipe
+After=network.target
 
-ExecStart=/usr/local/bin/checkupdated.sh
+[Service]
+Type=simple
+User=nobody  # Set an appropriate unprivileged user
+ExecStart=/usr/bin/checkupdated
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=7200  # Every 7200 seconds (2 hours)
 
 [Install]
 WantedBy=multi-user.target
+

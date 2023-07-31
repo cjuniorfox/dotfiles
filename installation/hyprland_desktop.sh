@@ -1,3 +1,5 @@
+cat << EOF | tee /etc/yum.repos.d/local.repo
+[local]
 name=Fedora local
 baseurl=file:///home/junior/rpmbuild/RPMS/x86_64
 enabled=1

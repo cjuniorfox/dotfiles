@@ -46,6 +46,7 @@ dnf install -y \
 	kitty \
 	network-manager-applet \
 	pavucontrol \
+        plymouth-theme-spinner \
 	pulseaudio-utils \
 	rofi-wayland \
 	sddm \
@@ -78,5 +79,8 @@ flatpak install -y \
 systemctl enable sddm
 systemctl enable checkupdate
 
-sudo plymouth-set-default-theme tribar -R
+sudo plymouth-set-default-theme spinner
 sudo systemctl set-default graphical.target 
+
+sudo dracut -vf --regenerate-all
+for user in $(users); do su -c xdg-user-dirs-update $user; done;

@@ -62,7 +62,7 @@
 	},
 	"custom/updates": {
 		"exec": "tail -f /tmp/update.pipe 2> /dev/null",
-		"on-click" : "sleep .1 && update.sh",
+		"on-click" : "sleep .1 && update",
 		"format" : " {}"
 	},
 	"custom/dunst" : {

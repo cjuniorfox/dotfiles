@@ -56,6 +56,8 @@ dnf install -y \
 	swaylock \
 	polkit-gnome \
 	xdg-desktop-portal-hyprland \
+	xdg-user-dirs \
+	xdg-user-dirs-gtk \
 	waybar-hyprland \
 	wlr-randr \
 	thunar \

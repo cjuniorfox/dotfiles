@@ -11,7 +11,7 @@ baseurl=file:///home/junior/rpmbuild/RPMS/noarch
 enabled=1
 gpgcheck=0
 EOF
-
+dnf copr -y enable cjuniorfox/hyprland-desktop
 dnf copr -y enable solopasha/hyprland
 
 dnf groupinstall -y \
@@ -71,6 +71,7 @@ flatpak install -y \
 	com.github.hluk.copyq \
 	com.github.tchx84.Flatseal \
 	org.gnome.Calculator \
+	org.gnome.Evince \
 	org.gnome.FileRoller \
 	org.gnome.FontManager \
 	org.mozilla.firefox \

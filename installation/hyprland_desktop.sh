@@ -1,16 +1,3 @@
-cat << EOF | tee /etc/yum.repos.d/local.repo
-[local]
-name=Fedora local
-baseurl=file:///home/junior/rpmbuild/RPMS/x86_64
-enabled=1
-gpgcheck=0
-
-[local-noarch]
-name=Fedora local noarch
-baseurl=file:///home/junior/rpmbuild/RPMS/noarch
-enabled=1
-gpgcheck=0
-EOF
 dnf copr -y enable cjuniorfox/hyprland-desktop
 dnf copr -y enable solopasha/hyprland
 
@@ -34,6 +21,7 @@ dnf install -y \
 	flatpak \
 	fontawesome6-free \
 	git \
+	gnome-keyring \
 	gvfs-smb \
 	hyprland \
 	hyprland-contrib \
@@ -51,6 +39,7 @@ dnf install -y \
 	pulseaudio-utils \
 	rofi-wayland \
 	sddm \
+	seahorse \
 	socat \
 	swaybg \
 	swayidle \
@@ -74,6 +63,7 @@ flatpak install -y \
 	org.gnome.Evince \
 	org.gnome.FileRoller \
 	org.gnome.FontManager \
+	org.gnome.Loupe \
 	org.mozilla.firefox \
 	org.freedesktop.Platform.ffmpeg-full/x86_64/22.08 \
 	org.freedesktop.Platform.openh264/x86_64/2.3.1 \

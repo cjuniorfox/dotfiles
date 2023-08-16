@@ -44,6 +44,7 @@ dnf install -y \
 	htop \
 	i3exit \
 	kitty \
+	nautilus \
 	network-manager-applet \
 	pavucontrol \
         plymouth-theme-spinner \
@@ -60,7 +61,6 @@ dnf install -y \
 	xdg-user-dirs-gtk \
 	waybar-hyprland \
 	wlr-randr \
-	thunar \
 	wob
 
 flatpak remote-delete fedora && \

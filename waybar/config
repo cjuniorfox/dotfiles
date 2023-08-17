@@ -7,8 +7,8 @@
 	"modules-right": ["disk","memory","cpu","battery","tray","custom/dunst","custom/block_keybind","idle_inhibitor","custom/updates","pulseaudio","custom/shutdown"],
 	"custom/menu": {
 		"format" : "",
-		"on-click" : "sleep .1 && ~/.config/rofi/menu.sh",
-		"on-click-right" : "sleep .1 && ~/.config/rofi/menurun.sh"
+		"on-click" : "sleep .3 && ~/.config/rofi/menu.sh",
+		"on-click-right" : "sleep .3 && ~/.config/rofi/menurun.sh"
 	},
 	"clock": {
         	"format": "{:%a %H:%M}",
@@ -77,7 +77,7 @@
 	},
 	"custom/shutdown": {
 		"format":"",
-		"on-click": "sleep .1 && ~/.config/rofi/shutdown.sh"
+		"on-click": "sleep .3 && rofi-shutdown-menu"
 	},
 	"hyprland/workspaces": {
 		"on-click": "activate",

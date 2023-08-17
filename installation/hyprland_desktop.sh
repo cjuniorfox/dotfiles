@@ -38,6 +38,7 @@ dnf install -y \
         plymouth-theme-spinner \
 	pulseaudio-utils \
 	rofi-wayland \
+	rofi-shutdown-menu \
 	sddm \
 	seahorse \
 	socat \

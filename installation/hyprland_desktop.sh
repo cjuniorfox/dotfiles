@@ -22,10 +22,12 @@ dnf install -y \
 	fontawesome6-free \
 	git \
 	gnome-keyring \
+	gnome-software \
 	gvfs-smb \
 	hyprland \
 	hyprland-contrib \
 	hyprland-plugins \
+	hyprland-shell-waybar \
 	hyprpaper \
 	hyprpicker \
 	hyprshot \

@@ -20,6 +20,7 @@ dnf install -y \
 	flatpak \
 	git \
 	gnome-keyring \
+	gnome-packagekit-installer \
 	gnome-software \
 	gvfs-smb \
 	hyprland \

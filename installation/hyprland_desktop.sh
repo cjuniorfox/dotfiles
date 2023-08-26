@@ -15,11 +15,9 @@ dnf groupinstall -y \
 dnf install -y \
 	azote \
 	blueman \
-	brightnessctl \
-	checkupdate \
 	dunst \
+	firewall-config \
 	flatpak \
-	fontawesome6-free \
 	git \
 	gnome-keyring \
 	gnome-software \
@@ -53,7 +51,7 @@ dnf install -y \
 	xdg-user-dirs-gtk \
 	waybar-hyprland \
 	wlr-randr \
-	wob
+	wob-changer
 
 flatpak remote-delete fedora && \
 	flatpak remote-delete fedora-testing

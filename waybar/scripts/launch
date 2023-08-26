@@ -1,8 +1,0 @@
-#!/bin/bash
-STYLE_PATH="$HOME/.config/waybar/styles/${WAYBAR_STYLE}.css"
-killall waybar;
-if [[ -f "${STYLE_PATH}" ]]; then
-	waybar --style "${STYLE_PATH}" $@;
-else
-	waybar $@;
-fi

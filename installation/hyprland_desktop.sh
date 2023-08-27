@@ -1,5 +1,7 @@
-dnf copr -y enable cjuniorfox/hyprland-desktop
+dnf copr -y enable cjuniorfox/hyprland-shell
 dnf copr -y enable solopasha/hyprland
+
+dnf update --refresh -y
 
 dnf groupinstall -y \
 	Administration\ Tools \
@@ -31,7 +33,6 @@ dnf install -y \
 	hyprpicker \
 	hyprshot \
 	htop \
-	i3exit \
 	kitty \
 	nautilus \
 	network-manager-applet \
@@ -52,7 +53,7 @@ dnf install -y \
 	xdg-user-dirs-gtk \
 	waybar-hyprland \
 	wlr-randr \
-	wob-changer
+	wol-changer
 
 flatpak remote-delete fedora && \
 	flatpak remote-delete fedora-testing

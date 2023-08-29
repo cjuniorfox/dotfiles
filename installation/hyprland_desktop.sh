@@ -51,7 +51,6 @@ dnf install -y \
 	xdg-desktop-portal-hyprland \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
-	waybar-hyprland \
 	wlr-randr \
 	wol-changer
 
@@ -73,7 +72,6 @@ flatpak install -y \
 	org.xfce.mousepad
 
 systemctl enable sddm
-systemctl enable checkupdate
 
 sudo plymouth-set-default-theme spinner
 sudo systemctl set-default graphical.target 

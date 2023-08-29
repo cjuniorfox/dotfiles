@@ -6,7 +6,10 @@ bg='1e1e2e' bgl='313244' fg='d9e0ee'
 red='f38ba8' green='a6e3a1' yellow='f9e2af'
 blue='89b4fa' magenta='cba6f7' cyan='89dceb'
 alpha='00000060'
-picdir="$(xdg-user-dir PICTURES)/wallpapers/"*
+[ -z "${LOCK_BACKGROUNDS}" ] && \
+	picdir="/usr/share/backgrounds/images/"* || \
+	picdir="${LOCK_BACKGROUNDS}"
+	
 image="$(shuf -n1 -e $picdir)"
 # CMD
 swaylock -f \

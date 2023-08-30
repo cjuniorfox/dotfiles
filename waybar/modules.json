@@ -1,0 +1,143 @@
+{
+	"custom/menu": {
+		"format" : "",
+		"on-click" : "sleep .3 && ~/.config/rofi/menu.sh",
+		"on-click-right" : "sleep .3 && ~/.config/rofi/menurun.sh"
+	},
+	"clock": {
+        	"format": "{:%H:%M}",
+        	"format-alt": "{:%A, %B %d, %Y (%R)}",
+        	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+        	"calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "none",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                },
+        	"actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                }
+    	},
+	"disk":{
+		"format":" / {percentage_used}%"
+	},
+	"pulseaudio": {
+    		"format": "{icon} {volume}%",
+    		"format-bluetooth": "{volume}% {icon}",
+    		"format-muted": "",
+    		"format-icons": {
+        		"headphone": "",
+        		"hands-free": "",
+        		"headset": "",
+        		"phone": "",
+        		"portable": "",
+        		"car": "",
+        		"default": ["", ""]
+    		},
+    		"scroll-step": 1,
+    		"on-click": "pavucontrol",
+    		"ignored-sinks": ["Easy Effects Sink"]
+	},
+	"custom/block_keybind":{
+		"exec": "~/.config/hypr/scripts/blockkeys",
+		"on-click" : "hyprctl dispatch submap reset"
+	},
+	"custom/updates": {
+		"exec": "tail -f /tmp/update.pipe 2> /dev/null",
+		"on-click" : "sleep .1 && update",
+		"format" : " {}"
+	},
+	"custom/dunst" : {
+		"exec": "~/.config/waybar/scripts/dunst.sh",
+    		"on-click": "dunstctl set-paused toggle",
+    		"restart-interval": 1,
+		"on-scroll-down": "[ $(dunstctl is-paused) = false ] && dunstctl history-pop",
+		"on-click-right": "dunstctl close",
+		"on-scroll-up": "dunstctl close",
+		"return-type": "json",
+		"alt" : "Scroll the mouse wheel to show notifications"
+	},
+	"custom/shutdown": {
+		"format":"",
+		"on-click": "sleep .3 && rofi-shutdown-menu"
+	},
+	"hyprland/workspaces": {
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"format": "{id} {icon}",
+		"format-icons": {
+			"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+			"active": "",
+			"default": ""
+		}
+	},
+	"wlr/workspaces" : {
+        	"on-click": "activate",
+        	"active-only": false,
+        	"all-outputs": true,
+        	"format": "{icon}",
+		"on-click" : "activate",
+    	 	"on-scroll-up": "hyprctl dispatch workspace e+1",
+     		"on-scroll-down": "hyprctl dispatch workspace e-1",
+        	"format-icons": {
+			"urgent": "",
+			"active":  "",
+			"default": "",
+            	"sort-by-number": true
+        }
+    	},
+	"idle_inhibitor": {
+      		"format": "{icon}",
+      		"format-icons": {
+        	"activated": "",
+        	"deactivated": ""
+      	}
+    },
+	"network": {
+		"format-icons":["","",""],
+    		"format": "{ifname}",
+    		"format-wifi": " {essid} ({signalStrength}%)",
+    		"format-ethernet": " {ipaddr}/{cidr}",
+    		"format-disconnected": "", 
+    		"tooltip-format": "{ifname} via {gwaddr} ",
+    		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    		"tooltip-format-ethernet": "{ifname} ",
+    		"tooltip-format-disconnected": "Disconnected"
+	},
+	"tray": {
+		"spacing" : 10
+    	},
+	"memory":{
+		"format":" {used:0.1f}G/{total:0.1f}G"
+	},
+	"cpu":{
+		"format":" {}%"
+	},
+	"battery": {
+    		"states": {
+        		"warning": 30,
+        		"critical": 15
+    		},
+    		"format-charging": "{icon} {capacity}%",
+    		"format-plugged": "{icon} {capacity}%",
+    		"format": "{icon} {capacity}%",
+    		"format-icons": ["", "", "", "", ""]
+	}
+}	

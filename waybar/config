@@ -1,0 +1,34 @@
+{
+	"layer": "top",
+	"height" : 30,
+	"spacing": 4,
+	"include": [
+		"~/.config/waybar/modules.json",
+		"~/.config/waybar/quick-launcher.json"
+	],
+	"modules-left": [
+		"custom/menu",
+		"custom/firefox",
+		"custom/teams",
+		"custom/outlook",
+		"custom/citrixworkspace",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"wlr/workspaces"
+	],
+	"modules-right": [
+		"idle_inhibitor",
+		"memory",
+		"cpu",
+		"custom/dunst",
+		"custom/block_keybind",
+		"custom/updates",
+		"pulseaudio",
+		"battery",
+		"clock",
+		"tray",
+		"custom/shutdown"
+	]
+
+}

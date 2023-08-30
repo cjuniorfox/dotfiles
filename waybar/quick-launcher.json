@@ -1,0 +1,24 @@
+{
+	"custom/firefox": {
+        	"format": "",
+        	"on-click": "flatpak run org.mozilla.firefox",
+        	"tooltip": false
+    	},
+
+	"custom/outlook": {
+        	"format": "",
+        	"on-click": "chrome --app=https://outlook.office.com/mail/",
+        	"tooltip": false
+    	},
+	"custom/teams": {
+        	"format": "",
+        	"on-click": "chrome --app=https://teams.microsoft.com/go",
+        	"tooltip": false
+    	},
+	"custom/citrixworkspace": {
+        	"format": "",
+        	"on-click": "chrome --app=https://meudesktopext.serasaexperian.com.br/",
+        	"tooltip": false
+    	}
+
+}

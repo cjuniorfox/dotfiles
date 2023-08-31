@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+TITLE="Copy/paste history"
+[[ "$LANG" == "pt_BR"* ]] && TITLE="Copiar e colar"
+
+cliphist list | rofi -dmenu -p "${TITLE}" \
+    -theme-str "configuration {show-icons: false;} #window { location:north east; anchor:north east; width:400px; } listview {columns:1;}" |\
+    cliphist decode | \
+    wl-copy

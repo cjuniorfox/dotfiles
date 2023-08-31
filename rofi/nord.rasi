@@ -38,9 +38,9 @@
 }
 
 window {
-    width: 735px;
-    location: northwest;
-    anchor:   northwest;
+//    width: 735px;
+//    location: northwest;
+//    anchor:   northwest;
     transparency: "real";
     margin: 14px;
     border:  0;

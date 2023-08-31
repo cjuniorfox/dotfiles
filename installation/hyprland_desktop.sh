@@ -1,5 +1,6 @@
 dnf copr -y enable cjuniorfox/hyprland-shell
 dnf copr -y enable solopasha/hyprland
+dnf copr -y enable en4aew/desktop-tools 
 
 dnf update --refresh -y
 
@@ -17,6 +18,7 @@ dnf groupinstall -y \
 dnf install -y \
 	azote \
 	blueman \
+	cliphist \
 	dunst \
 	firewall-config \
 	flatpak \
@@ -59,7 +61,6 @@ flatpak remote-delete fedora && \
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y \
-	com.github.hluk.copyq \
 	com.github.tchx84.Flatseal \
 	org.gnome.Calculator \
 	org.gnome.Evince \

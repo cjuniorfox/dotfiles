@@ -9,9 +9,11 @@
 	"modules-left": [
 		"custom/menu",
 		"custom/firefox",
-		"custom/teams",
-		"custom/outlook",
-		"custom/citrixworkspace",
+		"custom/kitty",
+		"custom/nautilus",
+		"custom/steam",
+		"custom/hgl",
+		"custom/code",
 		"hyprland/window"
 	],
 	"modules-center": [
@@ -19,6 +21,7 @@
 	],
 	"modules-right": [
 		"idle_inhibitor",
+		"disk",
 		"memory",
 		"cpu",
 		"custom/dunst",

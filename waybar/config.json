@@ -23,6 +23,7 @@
 		"cpu",
 		"custom/dunst",
 		"custom/block_keybind",
+		"custom/hyprland_keyboard",
 		"custom/updates",
 		"pulseaudio",
 		"battery",

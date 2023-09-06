@@ -293,6 +293,13 @@ label:focus {
     min-width: 16px;
 }
 
+#custom-hyprland_keyboard{
+    border-bottom: 3px solid #97e1ad;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
 #keyboard-state {
     background: #97e1ad;
     padding: 0 0px;

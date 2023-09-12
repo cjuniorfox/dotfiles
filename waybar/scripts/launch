@@ -2,7 +2,7 @@
 STYLE_PATH="$HOME/.config/waybar/styles/${WAYBAR_STYLE}.css"
 killall waybar;
 if [[ -f "${STYLE_PATH}" ]]; then
-	waybar --style "${STYLE_PATH}" $@;
+	waybar --style "${STYLE_PATH}" --config ~/.config/waybar/config.json $@;
 else
-	waybar $@;
+	waybar --config ~/.config/waybar/config.json $@;
 fi

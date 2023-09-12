@@ -54,6 +54,11 @@
 		"exec": "~/.config/hypr/scripts/blockkeys",
 		"on-click" : "hyprctl dispatch submap reset"
 	},
+	"custom/hyprland_keyboard":{
+		"exec": "hypr-get-keyboard-layout | jq -r '{text:(.short+\" \"+.\"short-variant\"),tooltip:(.keymap),alt:(.layout) }' -c --unbuffered",
+		"return-type":"json",
+		"format":" {}"
+	},
 	"custom/updates": {
 		"exec": "tail -f /tmp/update.pipe 2> /dev/null",
 		"on-click" : "sleep .1 && update",
@@ -77,16 +82,15 @@
 		"on-click": "activate",
 		"on-scroll-up": "hyprctl dispatch workspace e+1",
 		"on-scroll-down": "hyprctl dispatch workspace e-1",
-		"format": "{id} {icon}",
+		"format": "{icon}",
 		"format-icons": {
-			"1": "",
-		"2": "",
-		"3": "",
-		"4": "",
-		"5": "",
-			"active": "",
+			"urgent": "",
+			"active":  "",
 			"default": ""
 		}
+	},
+	"sway/language": {
+    		"format": "{short} {variant}"
 	},
 	"wlr/workspaces" : {
         	"on-click": "activate",

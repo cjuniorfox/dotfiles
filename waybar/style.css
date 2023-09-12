@@ -85,11 +85,6 @@ button:hover {
 }
 
 #custom-firefox,
-#custom-kitty,
-#custom-nautilus,
-#custom-steam,
-#custom-hgl,
-#custom-code,
 #custom-outlook,
 #custom-teams,
 #custom-citrixworkspace,
@@ -293,6 +288,13 @@ label:focus {
 
 #language {
     background: #00b093;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#custom-hyprland_keyboard{
+    border-bottom: 3px solid #97e1ad;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;

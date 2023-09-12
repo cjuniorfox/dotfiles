@@ -21,7 +21,7 @@
     	},
 	"custom/steambigpicture": {
         	"format": "",
-        	"on-click": "gamescope -W 2560 -H 1440 -f -- flatpak run com.valvesoftware.Steam -tenfoot",
+        	"on-click": "flatpak run com.valvesoftware.Steam -tenfoot",
         	"tooltip": false
     	},
 	"custom/hgl": {

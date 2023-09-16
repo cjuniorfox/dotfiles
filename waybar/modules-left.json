@@ -1,0 +1,12 @@
+{
+ "modules-left": [
+	"custom/menu",
+	"custom/firefox",
+	"custom/kitty",
+	"custom/nautilus",
+	"custom/steam",
+	"custom/steambigpicture",
+	"custom/hgl",
+	"custom/code",
+	"hyprland/window"
+  ]}

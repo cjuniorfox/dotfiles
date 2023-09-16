@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+echo "Auto Starting directories"
+
+find /etc/xdg/autostart/*.desktop -exec sh -c '$(cat {} | grep Exec | awk -F "=" "{print \$2}") &' \;

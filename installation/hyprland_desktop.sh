@@ -67,10 +67,10 @@ flatpak install -y \
 	org.gnome.FileRoller \
 	org.gnome.FontManager \
 	org.gnome.Loupe \
+	org.gnome.TextEditor \
 	org.mozilla.firefox \
 	org.freedesktop.Platform.ffmpeg-full/x86_64/22.08 \
 	org.freedesktop.Platform.openh264/x86_64/2.3.1 \
-	org.xfce.mousepad
 
 systemctl enable sddm
 

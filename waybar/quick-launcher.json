@@ -1,44 +1,14 @@
 {
 	"custom/firefox": {
         	"format": "",
-        	"on-click": "flatpak run org.mozilla.firefox",
+        	"on-click": "gtk-launch org.mozilla.firefox",
         	"tooltip": false
     	},
-	"custom/kitty": {
-        	"format": "",
-        	"on-click": "kitty",
-        	"tooltip": false
-    	},
-	"custom/nautilus": {
-        	"format": "",
-        	"on-click": "nautilus",
-        	"tooltip": false
-    	},
-	"custom/steam": {
-        	"format": "",
-        	"on-click": "flatpak run com.valvesoftware.Steam",
-        	"tooltip": false
-    	},
-	"custom/steambigpicture": {
-        	"format": "",
-        	"on-click": "flatpak run com.valvesoftware.Steam -tenfoot",
-        	"tooltip": false
-    	},
-	"custom/hgl": {
-        	"format": "",
-        	"on-click": "flatpak run com.heroicgameslauncher.hgl",
-        	"tooltip": false
-    	},
-	"custom/code": {
-        	"format": "",
-        	"on-click": "flatpak run com.visualstudio.code",
-        	"tooltip": false
-    	},
-	"custom/virtmanager": {
-        	"format": "",
-        	"on-click": "virt-manager",
-        	"tooltip": false
-    	},
+	"custom/terminal":{
+		"format": "",
+		"on-click":"rofi-sensible-terminal",
+		"tooltip":"false"
+	},
 	"custom/outlook": {
         	"format": "",
         	"on-click": "chrome --app=https://outlook.office.com/mail/",

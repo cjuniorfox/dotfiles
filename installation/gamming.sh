@@ -6,9 +6,10 @@ flatpak install -y \
 	com.valvesoftware.Steam \
         com.valvesoftware.Steam.CompatibilityTool.Boxtron \
         com.valvesoftware.Steam.Utility.protontricks \
-        com.valvesoftware.Steam.Utility.gamescope \
+        org.freedesktop.Platform.VulkanLayer.gamescope \
         com.valvesoftware.SteamLink \
         org.freedesktop.Platform.VulkanLayer.vkBasalt \
+	net.davidotek.pupgui2 \
         com.heroicgameslauncher.hgl \
 	org.freedesktop.Platform.VulkanLayer.MangoHud \
 	org.openrgb.OpenRGB

@@ -8,7 +8,7 @@ flatpak install -y \
 
 echo Setting\ up\ plymout\ to\ work\ with\ NVidia\ Drivers
 
-sudo ausearch -c 'plymouthd' --raw | audit2allow -M my-plymouthd
+ausearch -c 'plymouthd' --raw | audit2allow -M my-plymouthd
 
 echo Setting\ up\ environment\ variables
 
@@ -27,3 +27,4 @@ EOF
 for i in GBM_BACKEND __GLX_VENDOR_LIBRARY_NAME ENABLE_VKBASALT LIBVA_DRIVER_NAME QT_QPA_PLATFORMTHEME WLR_NO_HARDWARE_CURSORS VKD3D_CONFIG PROTON_ENABLE_NVAPI PROTON_ENABLE_NGX_UPDATER; do
 	[[ -z ${!i} ]] && cat /tmp/environment | grep $i >> /etc/environment
 done
+echo "Please restart your computer"

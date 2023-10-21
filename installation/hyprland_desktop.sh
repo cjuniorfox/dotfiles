@@ -15,10 +15,11 @@ dnf groupinstall -y \
 	Printing\ Support \
 	Standard
 
+echo "Base packages"
 dnf install -y \
 	azote \
 	blueman \
-	cliphist \
+        cliphist \
 	dunst \
 	firewall-config \
 	flatpak \
@@ -27,13 +28,6 @@ dnf install -y \
 	gnome-packagekit-installer \
 	gnome-software \
 	gvfs-smb \
-	hyprland \
-	hyprland-contrib \
-	hyprland-plugins \
-	hyprland-shell-waybar \
-	hyprpaper \
-	hyprpicker \
-	hyprshot \
 	htop \
 	kitty \
 	nautilus \
@@ -42,7 +36,6 @@ dnf install -y \
         plymouth-theme-spinner \
 	pulseaudio-utils \
 	rofi-wayland \
-	rofi-shutdown-menu \
 	sddm \
 	seahorse \
 	socat \
@@ -50,10 +43,27 @@ dnf install -y \
 	swayidle \
 	swaylock \
 	polkit-gnome \
-	xdg-desktop-portal-hyprland \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
-	wlr-randr \
+	wlr-randr
+
+
+echo "Hyperland from solopasha"
+
+dnf install -y \
+	hyprland \
+	hyprland-contrib \
+	hyprland-plugins \
+	hyprpaper \
+	hyprpicker \
+	hyprshot
+
+dnf install -y xdg-desktop-portal-hyprland \
+
+echo "Hyprland shell from cjuniorfox"
+dnf install -y \
+	hyprland-shell-waybar \
+	rofi-shutdown-menu \
 	wol-changer
 
 flatpak remote-delete fedora && \

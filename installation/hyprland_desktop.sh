@@ -29,6 +29,7 @@ dnf install -y \
 	gnome-software \
 	gvfs-smb \
 	htop \
+	ibus-panel \
 	kitty \
 	nautilus \
 	network-manager-applet \

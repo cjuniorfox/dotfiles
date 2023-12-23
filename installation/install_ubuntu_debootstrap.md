@@ -3,41 +3,29 @@ Many was based on [this article](https://gist.github.com/subrezon/9c04d10635ebbf
 
 # Mounting the partitions
 I suppose you know how to partition your disk. You create the partition as you wish. In my case, I'm using my currently btrfs partition I have, creating only a new subvolume to do the installation. So I do as follows:
-
 ```
 mount /dev/nvme0n1p3 /mnt
 btrfs su cr /mnt/@ubnt
 umount /mnt
 ```
-
 Mount the target filesystem on mnt
-
 ```
 mount /dev/nvme0n1p3 /mnt/ -o,subvol=@ubnt
 ```
-
 Create the directories also to be mounted from other subvolumes and partitions
-
 ```
 mkdir -p /mnt/{home,boot/efi}
 ```
-
 Mount the paths. In my case, I'm just biding as I wish to use the same partitions I currently using for EFI and home
-
 ```
 for i in /boot/efi/ /home/; do mount --bind $i /mnt$i; done
 ```
-
 # Install the base system
-
 Run podman containing the operating system image to be installed, mapping the target as the desired volume
-
 ```
 podman run -it --privileged --rm -v /mnt/:/mnt/ docker.io/ubuntu:jammy /bin/bash
 ```
-
 You should be into the podman container now. Let's prepare then:
-
 ```
 apt update -y
 apt install software-properties-common -y
@@ -45,22 +33,16 @@ add-apt-repository universe
 apt update && apt upgrade -y
 apt install debootstrap -y
 ```
-
 The base installation
-
 ```
 debootstrap jammy /mnt http://br.archive.ubuntu.com/ubuntu
 ```
-
 This will take a while. After that, you can leave the podman container to mount the leftover directories and run the chroot to follow the installation procedure
-
 ```
 exit
-```
-# Prepare the chroot environment
-```
 for i in /dev/ /dev/pts/ /run/ /proc/ /sys/ /sys/firmware/efi/efivars/; do mount --bind $i /mnt$i; done
 ```
+# Prepare the chroot environment
 Setup the fstab. In my case, I just copy the fstab from the current OS and change the things needed to change.
 ```
 cp /etc/fstab /mnt/etc/fstab

@@ -13,8 +13,13 @@ dnf groupinstall -y \
 
 echo "Base packages"
 dnf install -y \
+	adwaita-blue-gtk-theme \
+	adwaita-icon-theme \
 	azote \
 	blueman \
+	breeze-cursor-theme \
+	breeze-gtk \
+	breeze-icon-theme 
 	dunst \
 	firewall-config \
 	flatpak \

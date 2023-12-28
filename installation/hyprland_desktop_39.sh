@@ -1,7 +1,3 @@
-dnf copr -y enable cjuniorfox/hyprland-shell
-dnf copr -y enable solopasha/hyprland
-dnf copr -y enable en4aew/desktop-tools 
-
 dnf update --refresh -y
 
 dnf groupinstall -y \
@@ -19,7 +15,6 @@ echo "Base packages"
 dnf install -y \
 	azote \
 	blueman \
-        cliphist \
 	dunst \
 	firewall-config \
 	flatpak \
@@ -29,6 +24,7 @@ dnf install -y \
 	gnome-software \
 	gvfs-smb \
 	htop \
+	hyprland \
 	ibus-panel \
 	kitty \
 	nautilus \
@@ -50,19 +46,15 @@ dnf install -y \
 
 
 echo "Hyperland from solopasha"
-
-dnf install -y \
-	hyprland \
-	hyprland-contrib \
-	hyprland-plugins \
-	hyprpaper \
-	hyprpicker \
-	hyprshot
-
-dnf install -y xdg-desktop-portal-hyprland \
+dnf copr -y enable solopasha/hyprland
+dnf update --refresh -y &&  install -y \
+	cliphist \
+	hyprshot \
+        wl-clipboard
 
 echo "Hyprland shell from cjuniorfox"
-dnf install -y \
+dnf copr -y enable cjuniorfox/hyprland-shell
+dnf update --refresh -y && dnf install -y \
 	hyprland-shell-waybar \
 	rofi-shutdown-menu \
 	wol-changer
@@ -83,10 +75,8 @@ flatpak install -y \
 	org.freedesktop.Platform.ffmpeg-full/x86_64/22.08 \
 	org.freedesktop.Platform.openh264/x86_64/2.3.1 \
 
-systemctl enable sddm
-
-sudo plymouth-set-default-theme spinner
+plymouth-set-default-theme spinner
 sudo systemctl set-default graphical.target 
 
-sudo dracut -vf --regenerate-all
+dracut -vf --regenerate-all
 for user in $(users); do su -c xdg-user-dirs-update $user; done;

@@ -48,6 +48,7 @@ dnf install -y \
 	xdg-user-dirs-gtk \
 	wlr-randr
 
+dnf remove imsettings -y
 
 echo "Hyperland from solopasha"
 

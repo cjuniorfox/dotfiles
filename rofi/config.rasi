@@ -1,11 +1,11 @@
 configuration {
     font: "Envy Code R 12";
     line-margin: 18px;
-    display-ssh:    "";
-    display-run:    "";
-    display-drun:   "";
-    display-window: "";
-    display-combi:  "";
+    display-ssh:    " ";
+    display-run:    " ";
+    display-drun:   " ";
+    display-window: " ";
+    display-combi:  " ";
     show-icons:     true;
 }
 

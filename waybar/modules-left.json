@@ -1,12 +1,15 @@
 {
-"modules-left": [
-		"custom/menu",
-		"custom/firefox",
-		"custom/terminal",
-		"custom/teams",
-		"custom/outlook",
-		"custom/citrixworkspace",
-		"hyprland/window",
-		"custom/close_window"
-	]
+  "modules-left": [
+    "custom/menu",
+    "custom/firefox",
+    "custom/kitty",
+    "custom/nautilus",
+    "custom/code",
+    "custom/teams",
+    "custom/outlook",
+    "custom/citrixworkspace",
+    "wlr/taskbar",
+    "hyprland/window",
+    "custom/close_window"
+  ]
 }

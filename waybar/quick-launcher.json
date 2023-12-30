@@ -1,28 +1,58 @@
 {
-	"custom/firefox": {
-        	"format": "",
-        	"on-click": "gtk-launch org.mozilla.firefox",
-        	"tooltip": false
-    	},
-	"custom/terminal":{
-		"format": "",
-		"on-click":"rofi-sensible-terminal",
-		"tooltip":"false"
-	},
-	"custom/outlook": {
-        	"format": "",
-        	"on-click": "chrome --app=https://outlook.office.com/mail/",
-        	"tooltip": false
-    	},
-	"custom/teams": {
-        	"format": "",
-        	"on-click": "chrome --app=https://teams.microsoft.com/go",
-        	"tooltip": false
-    	},
-	"custom/citrixworkspace": {
-        	"format": "",
-        	"on-click": "chrome --app=https://meudesktopext.serasaexperian.com.br/",
-        	"tooltip": false
-    	}
-
+  "custom/firefox": {
+    "format": " ",
+    "on-click": "flatpak run org.mozilla.firefox",
+    "tooltip": false
+  },
+  "custom/kitty": {
+    "format": " ",
+    "on-click": "kitty",
+    "tooltip": false
+  },
+  "custom/nautilus": {
+    "format": " ",
+    "on-click": "nautilus",
+    "tooltip": false
+  },
+  "custom/steam": {
+    "format": " ",
+    "on-click": "flatpak run com.valvesoftware.Steam",
+    "tooltip": false
+  },
+  "custom/steambigpicture": {
+    "format": " ",
+    "on-click": "flatpak run com.valvesoftware.Steam -tenfoot",
+    "tooltip": false
+  },
+  "custom/hgl": {
+    "format": " ",
+    "on-rightclick":"~/.local/bin/hgl-hdr",
+    "on-click": "gio launch /var/lib/flatpak/exports/share/applications/com.heroicgameslauncher.hgl.desktop",
+    "tooltip": false
+  },
+  "custom/code": {
+    "format": " ",
+    "on-click": "flatpak run com.visualstudio.code",
+    "tooltip": false
+  },
+  "custom/virtmanager": {
+    "format": " ",
+    "on-click": "virt-manager",
+    "tooltip": false
+  },
+  "custom/outlook": {
+    "format": " ",
+    "on-click": "chrome --app=https://outlook.office.com/mail/",
+    "tooltip": false
+  },
+  "custom/teams": {
+    "format": " ",
+    "on-click": "chrome --app=https://teams.microsoft.com/go",
+    "tooltip": false
+  },
+  "custom/citrixworkspace": {
+    "format": " ",
+    "on-click": "chrome --app=https://meudesktopext.serasaexperian.com.br/",
+    "tooltip": false
+  }
 }

@@ -14,7 +14,9 @@ dnf groupinstall -y \
 echo "Base packages"
 dnf install -y \
 	adwaita-blue-gtk-theme \
+	adwaita-gtk2-theme \
 	adwaita-icon-theme \
+	adwaita-qt5 \
 	azote \
 	blueman \
 	breeze-cursor-theme \
@@ -47,7 +49,8 @@ dnf install -y \
 	polkit-gnome \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
-	wlr-randr
+	wlr-randr \
+	yaru-{gtk2,gtk3,gtk4,icon,sound}-theme
 
 dnf remove imsettings -y
 

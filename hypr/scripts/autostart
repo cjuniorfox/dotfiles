@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 echo "Auto Starting directories"
 
-find /etc/xdg/autostart/*.desktop -exec sh -c 'echo -e {} "\n===========" && exec $(cat {} | grep Exec | awk -F "=" "{print \$2}") &' \;
+find /etc/xdg/autostart/*.desktop -exec sh -c 'gio launch {} &' \;

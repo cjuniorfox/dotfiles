@@ -21,7 +21,7 @@ dnf install -y \
 	blueman \
 	breeze-cursor-theme \
 	breeze-gtk \
-	breeze-icon-theme 
+	breeze-icon-theme \
 	dunst \
 	firewall-config \
 	flatpak \

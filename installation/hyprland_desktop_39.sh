@@ -39,7 +39,6 @@ dnf install -y \
 	pavucontrol \
         plymouth-theme-spinner \
 	pulseaudio-utils \
-	rofi-wayland \
 	sddm \
 	seahorse \
 	socat \

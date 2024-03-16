@@ -1,6 +1,6 @@
 #/bin/bash
 lock="$HOME/.config/hypr/scripts/lockscreen"
 swayidle -w \
-	timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
-	timeout 3600 'systemctl suspend'
-	
+  timeout 600  'hyprctl dispatch dpms off' \
+	resume 'hyprctl dispatch dpms on' \
+  timeout 28800 'systemctl suspend'

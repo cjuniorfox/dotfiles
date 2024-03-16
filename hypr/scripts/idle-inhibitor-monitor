@@ -1,0 +1,9 @@
+#!/bin/bash
+sway-audio-idle-inhibit --dry-print-both |
+  while read -r event; do
+    echo $event
+    sway-audio-idle-inhibit --dry-print-both-waybar &
+    pid=$!
+    echo $pid
+    sleep 0.1 && kill $pid
+  done;

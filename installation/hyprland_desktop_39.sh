@@ -48,6 +48,7 @@ dnf install -y \
 	swaybg \
 	swayidle \
 	swaylock \
+	sway-audio-idle-inhibit \
 	polkit-gnome \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \

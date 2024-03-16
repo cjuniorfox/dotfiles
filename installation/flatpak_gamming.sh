@@ -6,8 +6,6 @@ com.valvesoftware.Steam.CompatibilityTool.Boxtron \
 com.valvesoftware.SteamLink \
 net.davidotek.pupgui2 \
 net.lutris.Lutris \
-org.freedesktop.Platform.GL.nvidia-${NVIDIA} \
-org.freedesktop.Platform.GL32.nvidia-${NVIDIA} \
 org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08 \
 org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/23.08 \
 org.winehq.Wine.DLLs.dxvk/x86_64/stable-23.08 \

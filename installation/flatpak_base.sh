@@ -15,5 +15,3 @@ org.gnome.Loupe.HEIC \
 org.gnome.TextEditor \
 org.gnome.meld \
 org.mozilla.firefox
-
-

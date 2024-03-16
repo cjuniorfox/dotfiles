@@ -58,7 +58,7 @@ dnf remove imsettings -y
 
 echo "Hyperland from solopasha"
 dnf copr -y enable solopasha/hyprland
-dnf update --refresh -y &&  install -y \
+dnf update --refresh -y && dnf install -y \
 	cliphist \
 	hyprshot \
         wl-clipboard

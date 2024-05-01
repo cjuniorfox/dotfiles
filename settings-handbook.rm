@@ -1,0 +1,16 @@
+#### Set desktop theme
+```
+ls /usr/share/themes/
+gsettings set org.gnome.desktop.interface gtk-theme Yaru-viridian-dark
+```
+
+#### Set icon theme
+```
+ls /usr/share/icons/
+gsettings set org.gnome.desktop.interface icon-theme Yaru-viridian-dark
+```
+
+#### Dark-theme
+```
+gsettings set org.gnome.desktop.interface color-scheme [default|prefer-dark]
+``` 

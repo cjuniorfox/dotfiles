@@ -1,5 +1,16 @@
 dnf update --refresh -y
 
+cat << EOF > /etc/default/grub
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="rhgb quiet amd_iommu=1"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
+EOF 
+
 dnf groupinstall -y \
 	Administration\ Tools \
 	Common\ NetworkManager\ Submodules \
@@ -7,7 +18,6 @@ dnf groupinstall -y \
 	Fonts \
 	Hardware\ Support \
 	Multimedia \
-	Input\ Methods \
 	Printing\ Support \
 	Standard
 
@@ -91,5 +101,5 @@ flatpak install -y \
 #plymouth-set-default-theme spinner
 sudo systemctl set-default graphical.target 
 
-dracut -vf --regenerate-all
+dnf reinstall -y kernel-*
 for user in $(users); do su -c xdg-user-dirs-update $user; done;

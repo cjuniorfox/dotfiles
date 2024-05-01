@@ -88,7 +88,7 @@ flatpak install -y \
 	org.freedesktop.Platform.ffmpeg-full/x86_64/22.08 \
 	org.freedesktop.Platform.openh264/x86_64/2.3.1 \
 
-#plymouth-set-default-theme spinner
+plymouth-set-default-theme bgrt
 sudo systemctl set-default graphical.target 
 
 dracut -vf --regenerate-all

@@ -1,16 +1,5 @@
 dnf update --refresh -y
 
-cat << EOF > /etc/default/grub
-GRUB_TIMEOUT=5
-GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
-GRUB_DEFAULT=saved
-GRUB_DISABLE_SUBMENU=true
-GRUB_TERMINAL_OUTPUT="console"
-GRUB_CMDLINE_LINUX="rhgb quiet amd_iommu=1"
-GRUB_DISABLE_RECOVERY="true"
-GRUB_ENABLE_BLSCFG=true
-EOF 
-
 dnf groupinstall -y \
 	Administration\ Tools \
 	Common\ NetworkManager\ Submodules \
@@ -98,8 +87,21 @@ flatpak install -y \
 	org.freedesktop.Platform.ffmpeg-full/x86_64/22.08 \
 	org.freedesktop.Platform.openh264/x86_64/2.3.1 \
 
-#plymouth-set-default-theme spinner
-sudo systemctl set-default graphical.target 
-
-dnf reinstall -y kernel-*
-for user in $(users); do su -c xdg-user-dirs-update $user; done;
+plymouth-set-default-theme bgrt -R
+systemctl set-default graphical.target 
+echo 'Installing the basic user files'
+git clone https://github.com/cjuniorfox/dotfiles.git
+USERS=$(awk -F"[/:]" "{if (\$3 >= 1000 && \$3 != 65534) print \$1}" /etc/passwd)
+for user in ${USERS}; do 
+    su -c xdg-user-dirs-update $user;
+    mkdir -p /home/$user/.config/{hypr,waybar,rofi}
+    cp -rvp dotfiles/hypr/* /home/$user/.config/hypr
+    cp -rvp dotfiles/waybar/* /home/$user/.config/waybar
+    cp -rvp dotfiles/rofi/* /home/$user/.config/rofi
+    touch /home/$user/.config/hypr/monitors.conf
+    touch /home/$user/.config/hypr/workspaces.conf
+    touch /home/$user/.config/hypr/input.conf
+    chown -R $user /home/$user/.config
+    su -c xdg-user-dirs-update $user;
+done;
+rm -rf dotfiles

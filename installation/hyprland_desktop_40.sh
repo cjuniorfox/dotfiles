@@ -17,6 +17,7 @@ dnf install -y \
 	adwaita-icon-theme \
 	adwaita-qt5 \
 	azote \
+        bash-completion \
 	blueman \
 	breeze-cursor-theme \
 	breeze-gtk \
@@ -48,7 +49,6 @@ dnf install -y \
 	swaybg \
 	swayidle \
 	swaylock \
-	sway-audio-idle-inhibit \
 	polkit-gnome \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
@@ -70,6 +70,11 @@ dnf update --refresh -y && dnf install -y \
 	hyprland-shell-waybar \
 	rofi-shutdown-menu \
 	wol-changer
+dnf swap -y rofi rofi-wayland
+
+echo "Tofik/sway"
+dnf copr -y enable tofik/sway
+dnf update --refresh -y && dnf install -y sway-audio-idle-inhibit
 
 flatpak remote-delete fedora && \
 	flatpak remote-delete fedora-testing

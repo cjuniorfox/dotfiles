@@ -16,3 +16,4 @@ flatpak install -y \
 #Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323
 #https://diolinux.com.br/aplicativos/instalar-o-openrgb.html
 #Playing games with MangoHUD, steamdeck and so on: https://www.clubedohardware.com.br/forums/topic/1609909-configurando-a-steam-flatpak-discos-mangohud-gamemode-e-remote-play/
+net.lutris.Lutris \

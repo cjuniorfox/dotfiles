@@ -1,7 +1,9 @@
 #!/bin/bash
 
+[[ $(cat /proc/cpuinfo | grep AMD) != "" ]] && cpu=amd || cpu=intel
+
 echo Installing\ the\ virtualization
-sudo dnf groupinstall virtualization
+dnf install -y @virtualization
 #UUID="$(sudo blkid | grep bcache0 | awk -F UUID= '{print $2}' | awk '{print $1}'| sed 's/\"//g')"
 #echo Writing\ fstab
 
@@ -27,7 +29,12 @@ nmcli c show Wired\ Bridged\ \(br0\) | grep 802-3-ethernet.wake-on-lan
 #Fix for virt-manager losing connection after while
 #https://discussion.fedoraproject.org/t/virtual-machine-manager-showing-qemu-kvm-connecting/83961/5
 
-sudo tee /etc/sysconfig/virtnetworkd << EOF > /dev/null
+tee /etc/sysconfig/virtnetworkd << EOF > /dev/null
 VIRTNETWORKD_ARGS=
 EOF
-sudo systemctl enable virtnetworkd.service --now
+systemctl daemon-reload
+systemctl enable virtnetworkd.service --now
+
+echo "Adding the IOMMU Kernel flag"
+sed -i 's/GRUB_CMDLINE_LINUX="/GRUB_CMDLINE_LINUX="'${cpu}'_iommu=on /g' /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg

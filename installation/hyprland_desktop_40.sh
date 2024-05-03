@@ -71,6 +71,7 @@ dnf update --refresh -y && dnf install -y \
 	rofi-shutdown-menu \
 	wol-changer
 dnf swap -y rofi rofi-wayland
+systemctl enable checkupdate.timer
 
 echo "Tofik/sway"
 dnf copr -y enable tofik/sway

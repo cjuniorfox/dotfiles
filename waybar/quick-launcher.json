@@ -47,12 +47,7 @@
   },
   "custom/teams": {
     "format": " ",
-    "on-click": "chrome --app=https://teams.microsoft.com/go",
-    "tooltip": false
-  },
-  "custom/citrixworkspace": {
-    "format": " ",
-    "on-click": "chrome --app=https://meudesktopext.serasaexperian.com.br/",
+    "on-click": "chrome --app=https://teams.microsoft.com/v2/",
     "tooltip": false
   }
 }

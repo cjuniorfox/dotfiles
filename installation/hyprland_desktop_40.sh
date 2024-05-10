@@ -49,6 +49,7 @@ dnf install -y \
 	swaybg \
 	swayidle \
 	swaylock \
+	system-config-printer \
 	polkit-gnome \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \

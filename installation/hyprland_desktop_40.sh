@@ -17,11 +17,12 @@ dnf install -y \
 	adwaita-icon-theme \
 	adwaita-qt5 \
 	azote \
-        bash-completion \
+	bash-completion \
 	blueman \
 	breeze-cursor-theme \
 	breeze-gtk \
 	breeze-icon-theme \
+	chrony \
 	dunst \
 	firewall-config \
 	flatpak \
@@ -41,7 +42,6 @@ dnf install -y \
 	nautilus \
 	network-manager-applet \
 	pavucontrol \
-        plymouth-theme-spinner \
 	pulseaudio-utils \
 	sddm \
 	seahorse \
@@ -63,7 +63,7 @@ dnf copr -y enable solopasha/hyprland
 dnf update --refresh -y && dnf install -y \
 	cliphist \
 	hyprshot \
-        wl-clipboard
+    wl-clipboard
 
 echo "Hyprland shell from cjuniorfox"
 dnf copr -y enable cjuniorfox/hyprland-shell
@@ -73,7 +73,7 @@ dnf update --refresh -y && dnf install -y \
 	wol-changer
 dnf swap -y rofi rofi-wayland
 systemctl enable checkupdate.timer
-
+systemctl enable chronyd
 echo "Tofik/sway"
 dnf copr -y enable tofik/sway
 dnf update --refresh -y && dnf install -y sway-audio-idle-inhibit

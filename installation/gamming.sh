@@ -5,10 +5,10 @@ dnf install -y steam-devices gamescope
 flatpak install -y \
 	com.valvesoftware.Steam \
         com.valvesoftware.Steam.CompatibilityTool.Boxtron \
-        com.valvesoftware.Steam.Utility.protontricks \
+        com.github.Matoking.protontricks \
         org.freedesktop.Platform.VulkanLayer.gamescope \
         com.valvesoftware.SteamLink \
-        org.freedesktop.Platform.VulkanLayer.vkBasalt \
+        runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt/x86_64/23.08 \
 	net.davidotek.pupgui2 \
         com.heroicgameslauncher.hgl \
 	org.freedesktop.Platform.VulkanLayer.MangoHud

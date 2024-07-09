@@ -67,10 +67,8 @@ dnf update --refresh -y && dnf install -y \
 
 echo "Hyprland shell from cjuniorfox"
 dnf copr -y enable cjuniorfox/hyprland-shell
-dnf update --refresh -y && dnf install -y \
-	hyprland-shell-waybar \
-	rofi-shutdown-menu \
-	wol-changer
+dnf update --refresh -y && dnf install -y checkupdate hyprland-shell-config wol-changer
+
 dnf swap -y rofi rofi-wayland
 systemctl enable checkupdate.timer
 systemctl enable chronyd

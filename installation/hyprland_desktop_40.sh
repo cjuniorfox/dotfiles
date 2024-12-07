@@ -37,6 +37,7 @@ dnf install -y \
 	htop \
 	hyprland \
 	ibus-panel \
+	kernel-modules-extra \
 	kitty \
 	liberation-fonts \
 	nautilus \

@@ -8,7 +8,7 @@ flatpak install -y \
         com.github.Matoking.protontricks \
         org.freedesktop.Platform.VulkanLayer.gamescope \
         com.valvesoftware.SteamLink \
-        runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt/x86_64/23.08 \
+        runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt \
 	net.davidotek.pupgui2 \
         com.heroicgameslauncher.hgl \
 	org.freedesktop.Platform.VulkanLayer.MangoHud

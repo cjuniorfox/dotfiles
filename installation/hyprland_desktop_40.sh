@@ -16,8 +16,8 @@ dnf install -y \
 	adwaita-gtk2-theme \
 	adwaita-icon-theme \
 	adwaita-qt5 \
-	azote \
 	bash-completion \
+	bibata-icon-theme \
 	blueman \
 	breeze-cursor-theme \
 	breeze-gtk \
@@ -54,6 +54,7 @@ dnf install -y \
 	polkit-gnome \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
+	waypaper \
 	wlr-randr \
 	yaru-{gtk2,gtk3,gtk4,icon,sound}-theme
 

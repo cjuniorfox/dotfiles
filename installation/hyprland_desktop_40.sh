@@ -12,8 +12,8 @@ echo "Base packages"
 dnf install -y \
 	adwaita-gtk2-theme \
 	adwaita-icon-theme \
-	azote \
 	bash-completion \
+	bibata-icon-theme \
 	blueman \
 	breeze-cursor-theme \
 	breeze-gtk \
@@ -49,6 +49,7 @@ dnf install -y \
 	system-config-printer \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
+	waypaper \
 	wlr-randr \
 	yaru-{gtk2,gtk3,gtk4,icon,sound}-theme
 

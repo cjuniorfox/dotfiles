@@ -1,21 +1,17 @@
 dnf update --refresh -y
 
-dnf groupinstall -y \
-	Administration\ Tools \
-	Common\ NetworkManager\ Submodules \
-	Core \
-	Fonts \
-	Hardware\ Support \
-	Multimedia \
-	Printing\ Support \
-	Standard
+dnf group install -y \
+	admin-tools \
+	core \
+	fonts \
+	hardware-support \
+	multimedia \
+	standard 
 
 echo "Base packages"
 dnf install -y \
-	adwaita-blue-gtk-theme \
 	adwaita-gtk2-theme \
 	adwaita-icon-theme \
-	adwaita-qt5 \
 	azote \
 	bash-completion \
 	blueman \
@@ -51,7 +47,6 @@ dnf install -y \
 	swayidle \
 	swaylock \
 	system-config-printer \
-	polkit-gnome \
 	xdg-user-dirs \
 	xdg-user-dirs-gtk \
 	wlr-randr \
@@ -94,20 +89,20 @@ flatpak install -y \
 	org.freedesktop.Platform.openh264/x86_64/2.3.1 \
 
 plymouth-set-default-theme bgrt -R
-systemctl set-default graphical.target 
-echo 'Installing the basic user files'
-git clone https://github.com/cjuniorfox/dotfiles.git
-USERS=$(awk -F"[/:]" "{if (\$3 >= 1000 && \$3 != 65534) print \$1}" /etc/passwd)
-for user in ${USERS}; do 
-    su -c xdg-user-dirs-update $user;
-    mkdir -p /home/$user/.config/{hypr,waybar,rofi}
-    cp -rvp dotfiles/hypr/* /home/$user/.config/hypr
-    cp -rvp dotfiles/waybar/* /home/$user/.config/waybar
-    cp -rvp dotfiles/rofi/* /home/$user/.config/rofi
-    touch /home/$user/.config/hypr/monitors.conf
-    touch /home/$user/.config/hypr/workspaces.conf
-    touch /home/$user/.config/hypr/input.conf
-    chown -R $user /home/$user/.config
-    su -c xdg-user-dirs-update $user;
-done;
+#systemctl set-default graphical.target 
+#echo 'Installing the basic user files'
+#git clone https://github.com/cjuniorfox/dotfiles.git
+#USERS=$(awk -F"[/:]" "{if (\$3 >= 1000 && \$3 != 65534) print \$1}" /etc/passwd)
+#for user in ${USERS}; do 
+#    su -c xdg-user-dirs-update $user;
+#    mkdir -p /home/$user/.config/{hypr,waybar,rofi}
+#    cp -rvp dotfiles/hypr/* /home/$user/.config/hypr
+#    cp -rvp dotfiles/waybar/* /home/$user/.config/waybar
+#    cp -rvp dotfiles/rofi/* /home/$user/.config/rofi
+#    touch /home/$user/.config/hypr/monitors.conf
+#    touch /home/$user/.config/hypr/workspaces.conf
+#    touch /home/$user/.config/hypr/input.conf
+#    chown -R $user /home/$user/.config
+#    su -c xdg-user-dirs-update $user;
+#done;
 rm -rf dotfiles

@@ -24,7 +24,6 @@ dnf install -y \
   breeze-gtk \
   breeze-icon-theme \
   chrony \
-  dunst \
   firewall-config \
   flatpak \
   fontawesome-fonts-all \
@@ -48,6 +47,7 @@ dnf install -y \
   seahorse \
   socat \
   system-config-printer \
+  swaync \
   xdg-user-dirs \
   xdg-user-dirs-gtk \
   wlr-randr
